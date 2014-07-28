@@ -1,6 +1,6 @@
 ﻿#region License
 // <copyright file="SFSDK.cs" company="Spider Financial Corp">
-//  (c) 2007-2013 Spider Financial Corp.
+//  (c) 2007-2014 Spider Financial Corp.
 //  All rights reserved.
 // </copyright>
 //  
