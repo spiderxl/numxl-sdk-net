@@ -777,179 +777,179 @@
             <summary> Query NumXL SDK for environment information.</summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_LAG(System.Double[],System.IntPtr,System.IntPtr)">
+        <member name="M:NumXLAPI.SFSDK.NDK_LAG(System.Double[],System.UIntPtr,System.UIntPtr)">
             <summary> Returns an array of cells for the backward shifted, backshifted or lagged time series.</summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
-            <seealso cref="M:NumXLAPI.SFSDK.NDK_DIFF(System.Double[],System.IntPtr,System.IntPtr,System.IntPtr)"/>
+            <seealso cref="M:NumXLAPI.SFSDK.NDK_DIFF(System.Double[],System.UIntPtr,System.UIntPtr,System.UIntPtr)"/>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_DIFF(System.Double[],System.IntPtr,System.IntPtr,System.IntPtr)">
+        <member name="M:NumXLAPI.SFSDK.NDK_DIFF(System.Double[],System.UIntPtr,System.UIntPtr,System.UIntPtr)">
             <summary> Returns an array of cells for the differenced time series (i.e. (1-L^S)^D).</summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
-            <seealso cref="M:NumXLAPI.SFSDK.NDK_LAG(System.Double[],System.IntPtr,System.IntPtr)"/>
-            <seealso cref="M:NumXLAPI.SFSDK.NDK_INTEG(System.Double[],System.IntPtr,System.IntPtr,System.IntPtr,System.Double[],System.IntPtr)"/>
+            <seealso cref="M:NumXLAPI.SFSDK.NDK_LAG(System.Double[],System.UIntPtr,System.UIntPtr)"/>
+            <seealso cref="M:NumXLAPI.SFSDK.NDK_INTEG(System.Double[],System.UIntPtr,System.UIntPtr,System.UIntPtr,System.Double[],System.UIntPtr)"/>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_INTEG(System.Double[],System.IntPtr,System.IntPtr,System.IntPtr,System.Double[],System.IntPtr)">
+        <member name="M:NumXLAPI.SFSDK.NDK_INTEG(System.Double[],System.UIntPtr,System.UIntPtr,System.UIntPtr,System.Double[],System.UIntPtr)">
             <summary> Returns an array of cells for the integrated time series (inverse operator of NDK_DIFF). </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
-            <seealso cref="M:NumXLAPI.SFSDK.NDK_DIFF(System.Double[],System.IntPtr,System.IntPtr,System.IntPtr)"/>
-            <seealso cref="M:NumXLAPI.SFSDK.NDK_LAG(System.Double[],System.IntPtr,System.IntPtr)"/>
+            <seealso cref="M:NumXLAPI.SFSDK.NDK_DIFF(System.Double[],System.UIntPtr,System.UIntPtr,System.UIntPtr)"/>
+            <seealso cref="M:NumXLAPI.SFSDK.NDK_LAG(System.Double[],System.UIntPtr,System.UIntPtr)"/>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_RMNA(System.Double[],System.IntPtr@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_RMNA(System.Double[],System.UIntPtr@)">
             <summary> Returns an array of cells of a time series after removing all missing values.</summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_REVERSE(System.Double[],System.IntPtr)">
+        <member name="M:NumXLAPI.SFSDK.NDK_REVERSE(System.Double[],System.UIntPtr)">
             <summary> Returns the time-reversed order time series (i.e. the first observation is swapped with the last observation, etc.): both missing and non-missing values.</summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_SCALE(System.Double[],System.IntPtr,System.Double)">
+        <member name="M:NumXLAPI.SFSDK.NDK_SCALE(System.Double[],System.UIntPtr,System.Double)">
             <summary> Returns an array of cells for the scaled time series.</summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_SUB(System.Double[],System.IntPtr,System.Double[],System.IntPtr)">
+        <member name="M:NumXLAPI.SFSDK.NDK_SUB(System.Double[],System.UIntPtr,System.Double[],System.UIntPtr)">
             <summary> Returns an array of the difference between two time series.</summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_ADD(System.Double[],System.IntPtr,System.Double[],System.IntPtr)">
+        <member name="M:NumXLAPI.SFSDK.NDK_ADD(System.Double[],System.UIntPtr,System.Double[],System.UIntPtr)">
             <summary>Returns an array of cells for the sum of two time series..</summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_CONVOLUTION(System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.Double@,System.IntPtr@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_CONVOLUTION(System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.Double@,System.UIntPtr@)">
             <summary> Time series convolution orderator.</summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_IDFT(System.Double[],System.Double[],System.IntPtr,System.Double[],System.IntPtr)">
+        <member name="M:NumXLAPI.SFSDK.NDK_IDFT(System.Double[],System.Double[],System.UIntPtr,System.Double[],System.UIntPtr)">
             <summary> Inverse discrete fourier transform.</summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_DFT(System.Double[],System.IntPtr,System.Int16,System.Int16,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_DFT(System.Double[],System.UIntPtr,System.Int16,System.Int16,System.Double@)">
             <summary> discrete fourier transform.</summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_CLOGLOG(System.Double[],System.IntPtr,System.Int16)">
+        <member name="M:NumXLAPI.SFSDK.NDK_CLOGLOG(System.Double[],System.UIntPtr,System.Int16)">
             <summary> Computes the complementary log-log transformation, including its inverse.</summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_PROBIT(System.Double[],System.IntPtr,System.Int16)">
+        <member name="M:NumXLAPI.SFSDK.NDK_PROBIT(System.Double[],System.UIntPtr,System.Int16)">
             <summary> Computes the probit transformation, including its inverse.</summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_LOGIT(System.Double[],System.IntPtr,System.Int16)">
+        <member name="M:NumXLAPI.SFSDK.NDK_LOGIT(System.Double[],System.UIntPtr,System.Int16)">
             <summary> Computes the logit transformation, including its inverse.</summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_BOXCOX(System.Double[],System.IntPtr,System.Double@,System.Double@,System.Int32,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_BOXCOX(System.Double[],System.UIntPtr,System.Double@,System.Double@,System.Int32,System.Double@)">
             <summary> Computes the Box-Cox transformation, including its inverse.</summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_DETREND(System.Double[],System.IntPtr,System.Int16)">
+        <member name="M:NumXLAPI.SFSDK.NDK_DETREND(System.Double[],System.UIntPtr,System.Int16)">
             <summary> Detrends a time series using a regression of y against a polynomial time trend of order p. </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_RMSEASONAL(System.Double[],System.IntPtr,System.IntPtr)">
+        <member name="M:NumXLAPI.SFSDK.NDK_RMSEASONAL(System.Double[],System.UIntPtr,System.UIntPtr)">
             <summary> Returns an array of the deseasonalized time series, assuming a linear model. </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_INTERP_NAN(System.Double[],System.IntPtr,System.Int16,System.Double)">
+        <member name="M:NumXLAPI.SFSDK.NDK_INTERP_NAN(System.Double[],System.UIntPtr,System.Int16,System.Double)">
             <summary> Returns an array of a time series after substituting all missing values with the mean/median. </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_INTERP_BROWN(System.Double[],System.IntPtr)">
+        <member name="M:NumXLAPI.SFSDK.NDK_INTERP_BROWN(System.Double[],System.UIntPtr)">
             <summary> Imput missing values using brownian bridge </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_HASNA(System.Double[],System.IntPtr,System.Int16)">
+        <member name="M:NumXLAPI.SFSDK.NDK_HASNA(System.Double[],System.UIntPtr,System.Int16)">
             <summary> Examine whether the given array has one or more missing values. </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_ACF(System.Double[],System.IntPtr,System.Int32,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_ACF(System.Double[],System.UIntPtr,System.Int32,System.Double@)">
             <summary> Calculates the sample autocorrelation function (ACF) of a stationary time series  </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_ACF_ERROR(System.Double[],System.IntPtr,System.Int32,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_ACF_ERROR(System.Double[],System.UIntPtr,System.Int32,System.Double@)">
             <summary> Calculates the standard error in the sample autocorrelation function. </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_ACFCI(System.Double[],System.IntPtr,System.Int32,System.Double,System.Double@,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_ACFCI(System.Double[],System.UIntPtr,System.Int32,System.Double,System.Double@,System.Double@)">
             <summary> Calculates the confidence interval limits (upper/lower) for the autocorrelation function. </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_PACF(System.Double[],System.IntPtr,System.Int32,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_PACF(System.Double[],System.UIntPtr,System.Int32,System.Double@)">
             <summary>  Calculates the sample partial autocorrelation function (PACF).  </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_PACF_ERROR(System.Double[],System.IntPtr,System.Int32,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_PACF_ERROR(System.Double[],System.UIntPtr,System.Int32,System.Double@)">
             <summary> Calculates the standard error of the sample partial autocorrelation function (PACF). </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_PACFCI(System.Double[],System.IntPtr,System.Int32,System.Double,System.Double@,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_PACFCI(System.Double[],System.UIntPtr,System.Int32,System.Double,System.Double@,System.Double@)">
             <summary> Calculates the confidence interval limits (upper/lower) for the partial-autocorrelation function. </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_EWMA(System.Double[],System.IntPtr,System.Double,System.IntPtr,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_EWMA(System.Double[],System.UIntPtr,System.Double,System.UIntPtr,System.Double@)">
             <summary> Calculates the estimated value of the exponential-weighted volatility (EWV). </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_EWXCF(System.Double[],System.Double[],System.IntPtr,System.Double,System.IntPtr,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_EWXCF(System.Double[],System.Double[],System.UIntPtr,System.Double,System.UIntPtr,System.Double@)">
             <summary> Computes the correlation factor using the exponential-weighted correlation function. </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_INTERPOLATE(System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.Int16,System.Boolean,System.Double[],System.IntPtr)">
+        <member name="M:NumXLAPI.SFSDK.NDK_INTERPOLATE(System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.Int16,System.Boolean,System.Double[],System.UIntPtr)">
             <summary> Interpolate function </summary>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_ACFTEST(System.Double[],System.IntPtr,System.Int32,System.Double,System.Double,System.Int16,System.Int16,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_ACFTEST(System.Double[],System.UIntPtr,System.Int32,System.Double,System.Double,System.Int16,System.Int16,System.Double@)">
             <summary> Calculates the p-value of the statistical test for the population autocorrelation function. </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_NORMALTEST(System.Double[],System.IntPtr,System.Int16,System.Int16,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_NORMALTEST(System.Double[],System.UIntPtr,System.Int16,System.Int16,System.Double@)">
             <summary> Returns the p-value of the normality test (i.e. whether a data set is well-modeled by a normal distribution). </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_WNTEST(System.Double[],System.IntPtr,System.Int32,System.Int16,System.Int16,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_WNTEST(System.Double[],System.UIntPtr,System.Int32,System.Int16,System.Int16,System.Double@)">
             <summary> Computes the p-value of the statistical portmanteau test (i.e. whether any of a group of autocorrelations of a time series are different from zero). </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_ARCHTEST(System.Double[],System.IntPtr,System.Int32,System.Int16,System.Int16,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_ARCHTEST(System.Double[],System.UIntPtr,System.Int32,System.Int16,System.Int16,System.Double@)">
             <summary> Calculates the p-value of the ARCH effect test (i.e. the white-noise test for the squared time series). </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_MEANTEST(System.Double[],System.IntPtr,System.Double,System.Int16,System.Int16,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_MEANTEST(System.Double[],System.UIntPtr,System.Double,System.Int16,System.Int16,System.Double@)">
             <summary> Calculates the p-value of the statistical test for the population mean. </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_STDEVTEST(System.Double[],System.IntPtr,System.Double,System.Int16,System.Int16,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_STDEVTEST(System.Double[],System.UIntPtr,System.Double,System.Int16,System.Int16,System.Double@)">
             <summary> Calculates the p-value of the statistical test for the population standard deviation. </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_SKEWTEST(System.Double[],System.IntPtr,System.Double,System.Int16,System.Int16,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_SKEWTEST(System.Double[],System.UIntPtr,System.Double,System.Int16,System.Int16,System.Double@)">
             <summary> Calculates the p-value of the statistical test for the population skew (i.e. 3rd moment) </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_XKURTTEST(System.Double[],System.IntPtr,System.Double,System.Int16,System.Int16,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_XKURTTEST(System.Double[],System.UIntPtr,System.Double,System.Int16,System.Int16,System.Double@)">
             <summary> Calculates the p-value of the statistical test for the population excess kurtosis (4th moment). </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_XCFTEST(System.Double[],System.Double[],System.IntPtr,System.Int32,System.Int16,System.Double,System.Int16,System.Double,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_XCFTEST(System.Double[],System.Double[],System.UIntPtr,System.Int32,System.Int16,System.Double,System.Int16,System.Double,System.Double@)">
             <summary> Calculates the test stats, p-value or critical value of the correlation test. </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_ADFTEST(System.Double[],System.IntPtr,System.Int16,System.Int16,System.Boolean,System.Int16,System.Int16,System.Double,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_ADFTEST(System.Double[],System.UIntPtr,System.Int16,System.Int16,System.Boolean,System.Int16,System.Int16,System.Double,System.Double@)">
             <summary> Returns the p-value of the Augmented Dickey-Fuller (ADF) test, which tests for a unit root in the time series sample. </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_KPSSTEST(System.Double[],System.IntPtr,System.Int16,System.Int16,System.Boolean,System.Int16,System.Int16,System.Double,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_KPSSTEST(System.Double[],System.UIntPtr,System.Int16,System.Int16,System.Boolean,System.Int16,System.Int16,System.Double,System.Double@)">
             <summary> KPSS (stationary) test function </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_JOHANSENTEST(System.IntPtr@,System.IntPtr,System.IntPtr,System.Int16,System.Int16,System.Boolean,System.Int16,System.Int16,System.Double,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_JOHANSENTEST(System.UIntPtr@,System.UIntPtr,System.UIntPtr,System.Int16,System.Int16,System.Boolean,System.Int16,System.Int16,System.Double,System.Double@)">
             <summary> Returns the Johansen (cointegration) test statistics for two or more time series. </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_COLNRTY_TEST(System.IntPtr@,System.IntPtr,System.IntPtr,System.Byte[],System.IntPtr,NumXLAPI.COLNRTY_TEST_TYPE,System.Int16,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_COLNRTY_TEST(System.UIntPtr@,System.UIntPtr,System.UIntPtr,System.Byte[],System.UIntPtr,NumXLAPI.COLNRTY_TEST_TYPE,System.Int16,System.Double@)">
             <summary> Returns the Johansen (cointegration) test statistics for two or more time series. </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_CHOWTEST(System.IntPtr@,System.IntPtr,System.Double[],System.IntPtr,System.IntPtr@,System.Double[],System.IntPtr,System.Byte[],System.IntPtr,System.Double,NumXLAPI.TEST_RETURN,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_CHOWTEST(System.UIntPtr@,System.UIntPtr,System.Double[],System.UIntPtr,System.UIntPtr@,System.Double[],System.UIntPtr,System.Byte[],System.UIntPtr,System.Double,NumXLAPI.TEST_RETURN,System.Double@)">
             <summary> Returns the p-value of the regression stability test (i.e. whether the coefficients in two linear regressions on different data sets are equal). </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
@@ -961,64 +961,64 @@
             <summary> Calculates the excess kurtosis of the student's t-distribution. </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_EDF(System.Double[],System.IntPtr,System.Double,System.Int16,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_EDF(System.Double[],System.UIntPtr,System.Double,System.Int16,System.Double@)">
             <summary> Calculates the empirical distribution function (or empirical cdf) of the sample data. </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_HIST_BINS(System.Double[],System.IntPtr,System.Int16,System.IntPtr@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_HIST_BINS(System.Double[],System.UIntPtr,System.Int16,System.UIntPtr@)">
             <summary> Returns the number of histogram bins using a given method. </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_HIST_BIN_LIMIT(System.Double[],System.IntPtr,System.IntPtr,System.IntPtr,System.Int16,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_HIST_BIN_LIMIT(System.Double[],System.UIntPtr,System.UIntPtr,System.UIntPtr,System.Int16,System.Double@)">
             <summary> Returns the upper/lower limit or center value of the k-th histogram bin.</summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_HISTOGRAM(System.Double[],System.IntPtr,System.IntPtr,System.IntPtr,System.Int16,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_HISTOGRAM(System.Double[],System.UIntPtr,System.UIntPtr,System.UIntPtr,System.Int16,System.Double@)">
             <summary> Calculates the histogram or cumulative histogram function for a given bin. </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_KERNEL_DENSITY_ESTIMATE(System.Double[],System.IntPtr,System.Double,System.Double,System.Int16,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_KERNEL_DENSITY_ESTIMATE(System.Double[],System.UIntPtr,System.Double,System.Double,System.Int16,System.Double@)">
             <summary> Returns the upper/lower limit or center value of the k-th histogram bin. </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_GAUSS_RNG(System.Double,System.Double,System.UIntPtr,System.Double[],System.IntPtr)">
+        <member name="M:NumXLAPI.SFSDK.NDK_GAUSS_RNG(System.Double,System.Double,System.UIntPtr,System.Double[],System.UIntPtr)">
             <summary> Returns a sequence of random numbers drawn from Normal distribution. </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
         <!-- Badly formed XML comment ignored for member "M:NumXLAPI.SFSDK.NDK_GAUSS_FORECI(System.Double,System.Double,System.Double,System.Int16,System.Double@)" -->
         <!-- Badly formed XML comment ignored for member "M:NumXLAPI.SFSDK.NDK_TSTUDENT_FORECI(System.Double,System.Double,System.Double,System.Double,System.Int16,System.Double@)" -->
         <!-- Badly formed XML comment ignored for member "M:NumXLAPI.SFSDK.NDK_GED_FORECI(System.Double,System.Double,System.Double,System.Double,System.Int16,System.Double@)" -->
-        <member name="M:NumXLAPI.SFSDK.NDK_XKURT(System.Double[],System.IntPtr,System.Int16,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_XKURT(System.Double[],System.UIntPtr,System.Int16,System.Double@)">
             <summary> Compute the kernel density distribution function </summary>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_SKEW(System.Double[],System.IntPtr,System.Int16,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_SKEW(System.Double[],System.UIntPtr,System.Int16,System.Double@)">
             <summary> Compute sample skewness function </summary>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_AVERAGE(System.Double[],System.IntPtr,System.Int16,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_AVERAGE(System.Double[],System.UIntPtr,System.Int16,System.Double@)">
             <summary> Compute sample skewness function </summary>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_VARIANCE(System.Double[],System.IntPtr,System.Int16,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_VARIANCE(System.Double[],System.UIntPtr,System.Int16,System.Double@)">
             <summary> Compute sample skewness function </summary>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_MIN(System.Double[],System.IntPtr,System.Int16,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_MIN(System.Double[],System.UIntPtr,System.Int16,System.Double@)">
             <summary> Compute sample skewness function </summary>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_MAX(System.Double[],System.IntPtr,System.Int16,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_MAX(System.Double[],System.UIntPtr,System.Int16,System.Double@)">
             <summary> Compute sample skewness function </summary>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_QUANTILE(System.Double[],System.IntPtr,System.Double,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_QUANTILE(System.Double[],System.UIntPtr,System.Double,System.Double@)">
             <summary> Compute sample skewness function </summary>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_IQR(System.Double[],System.IntPtr,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_IQR(System.Double[],System.UIntPtr,System.Double@)">
             <summary> Compute sample skewness function </summary>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_SORT_ASC(System.Double[],System.IntPtr)">
+        <member name="M:NumXLAPI.SFSDK.NDK_SORT_ASC(System.Double[],System.UIntPtr)">
             <summary> Returns the sorted sample data </summary>
             <param name="pData">is the input data sample (a one dimensional array)</param>
             <param name="nSize">is the number of observations in pData</param>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_HURST_EXPONENT(System.Double[],System.IntPtr,System.Double,System.Int16,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_HURST_EXPONENT(System.Double[],System.UIntPtr,System.Double,System.Int16,System.Double@)">
             <summary> Calculates the Hurst exponent (a measure of persistence or long memory) for time series. </summary>
             <param name="pData">is the input data sample (a one dimensional array)</param>
             <param name="nSize">is the number of observations in pData</param>
@@ -1035,7 +1035,7 @@
             <param name="retVal">is the calculated value of this function.</param>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_GINI(System.Double[],System.IntPtr,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_GINI(System.Double[],System.UIntPtr,System.Double@)">
             <summary> Returns the sample Gini coefficient, a measure of statistical dispersion. </summary>
             <param name="pData">is the input data sample (a one dimensional array)</param>
             <param name="nSize">is the number of observations in pData</param>
@@ -1049,47 +1049,47 @@
             </list>
             </remarks>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_XCF(System.Double[],System.Double[],System.IntPtr,System.IntPtr,System.Int16,System.Int16,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_XCF(System.Double[],System.Double[],System.UIntPtr,System.UIntPtr,System.Int16,System.Int16,System.Double@)">
             <summary> Calculates the cross-correlation function between two time series </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_RMS(System.Double[],System.IntPtr,System.Int16,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_RMS(System.Double[],System.UIntPtr,System.Int16,System.Double@)">
             <summary> Returns the sample root mean square (RMS). </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_MD(System.Double[],System.IntPtr,System.Int16,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_MD(System.Double[],System.UIntPtr,System.Int16,System.Double@)">
             <summary> Returns the mean difference of the input data series. </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_RMD(System.Double[],System.IntPtr,System.Int16,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_RMD(System.Double[],System.UIntPtr,System.Int16,System.Double@)">
             <summary> Returns the sample relative mean difference. </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_MAD(System.Double[],System.IntPtr,System.Int16,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_MAD(System.Double[],System.UIntPtr,System.Int16,System.Double@)">
             <summary> Returns the sample median of absolute deviation (MAD) </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_LRVAR(System.Double[],System.IntPtr,System.IntPtr,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_LRVAR(System.Double[],System.UIntPtr,System.UIntPtr,System.Double@)">
             <summary> Returns the long-run variance using a Bartlett kernel with window size k. </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_SAD(System.Double[],System.Double[],System.IntPtr,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_SAD(System.Double[],System.Double[],System.UIntPtr,System.Double@)">
             <summary>  Calculates the sum of absolute errors (SAE) between the forecast and the eventual outcomes. </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_MAE(System.Double[],System.Double[],System.IntPtr,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_MAE(System.Double[],System.Double[],System.UIntPtr,System.Double@)">
             <summary> Calculates the mean absolute error function for the forecast and the eventual outcomes. </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_MAPE(System.Double[],System.Double[],System.IntPtr,System.Int16,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_MAPE(System.Double[],System.Double[],System.UIntPtr,System.Int16,System.Double@)">
             <summary> Calculates the mean absolute percentage error (deviation) function for the forecast and the eventual outcomes. </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_RMSE(System.Double[],System.Double[],System.IntPtr,System.Int16,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_RMSE(System.Double[],System.Double[],System.UIntPtr,System.Int16,System.Double@)">
             <summary> Calculates the root mean squared error (aka root mean squared deviation (RMSD)) function. </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_SSE(System.Double[],System.Double[],System.IntPtr,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_SSE(System.Double[],System.Double[],System.UIntPtr,System.Double@)">
             <summary> Calculates the sum of the squared errors of the prediction function. </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
@@ -1121,63 +1121,63 @@
             <summary> Returns values along a trend curve (e.g. linear, quadratic, exponential, etc.) at time T+m. </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_SLR_PARAM(System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.Double,System.Double,System.Int16,System.Int16,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_SLR_PARAM(System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.Double,System.Double,System.Int16,System.Int16,System.Double@)">
             <summary> Calculates the OLS regression coefficients values </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_SLR_FORE(System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.Double,System.Double,System.Double,System.Int16,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_SLR_FORE(System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.Double,System.Double,System.Double,System.Int16,System.Double@)">
             <summary> Calculates the forecast mean, error and confidence interval. </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_SLR_FITTED(System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.Double,System.Int16)">
+        <member name="M:NumXLAPI.SFSDK.NDK_SLR_FITTED(System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.Double,System.Int16)">
             <summary> Returns the fitted values of the conditional mean, residuals or leverage measures. </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_SLR_ANOVA(System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.Double,System.Int16)">
+        <member name="M:NumXLAPI.SFSDK.NDK_SLR_ANOVA(System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.Double,System.Int16)">
             <summary> Returns the fitted values of the conditional mean, residuals or leverage measures. </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_SLR_GOF(System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.Double,System.Int16,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_SLR_GOF(System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.Double,System.Int16,System.Double@)">
             <summary> Calculates a measure for the goodness of fit (e.g. R^2). </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_MLR_PARAM(System.Double[],System.IntPtr,System.IntPtr,System.Byte[],System.IntPtr,System.Double[],System.IntPtr,System.Double,System.Double,System.Int16,System.Int16,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_MLR_PARAM(System.Double[],System.UIntPtr,System.UIntPtr,System.Byte[],System.UIntPtr,System.Double[],System.UIntPtr,System.Double,System.Double,System.Int16,System.Int16,System.Double@)">
             <summary> Calculates the OLS regression coefficients values </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_MLR_FORE(System.Double[],System.IntPtr,System.IntPtr,System.Byte[],System.IntPtr,System.Double[],System.IntPtr,System.Double,System.Double,System.Double,System.Int16,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_MLR_FORE(System.Double[],System.UIntPtr,System.UIntPtr,System.Byte[],System.UIntPtr,System.Double[],System.UIntPtr,System.Double,System.Double,System.Double,System.Int16,System.Double@)">
             <summary> Calculates the forecast mean, error and confidence interval. </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_MLR_FITTED(System.Double[],System.IntPtr,System.IntPtr,System.Byte[],System.IntPtr,System.Double[],System.IntPtr,System.Double,System.Int16)">
+        <member name="M:NumXLAPI.SFSDK.NDK_MLR_FITTED(System.Double[],System.UIntPtr,System.UIntPtr,System.Byte[],System.UIntPtr,System.Double[],System.UIntPtr,System.Double,System.Int16)">
             <summary> Returns the fitted values of the conditional mean, residuals or leverage measures. </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_MLR_ANOVA(System.Double[],System.IntPtr,System.IntPtr,System.Byte[],System.IntPtr,System.Double[],System.IntPtr,System.Double,System.Int16)">
+        <member name="M:NumXLAPI.SFSDK.NDK_MLR_ANOVA(System.Double[],System.UIntPtr,System.UIntPtr,System.Byte[],System.UIntPtr,System.Double[],System.UIntPtr,System.Double,System.Int16)">
             <summary> Returns the fitted values of the conditional mean, residuals or leverage measures. </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_SLR_GOF(System.Double[],System.IntPtr,System.IntPtr,System.Byte[],System.IntPtr,System.Double[],System.IntPtr,System.Double,System.Int16,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_SLR_GOF(System.Double[],System.UIntPtr,System.UIntPtr,System.Byte[],System.UIntPtr,System.Double[],System.UIntPtr,System.Double,System.Int16,System.Double@)">
             <summary> Calculates a measure for the goodness of fit (e.g. R^2). </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_MLR_PRFTest(System.Double[],System.IntPtr,System.IntPtr,System.Double[],System.IntPtr,System.Double,System.Byte[],System.IntPtr,System.Byte[],System.IntPtr,System.Double,System.Int16,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_MLR_PRFTest(System.Double[],System.UIntPtr,System.UIntPtr,System.Double[],System.UIntPtr,System.Double,System.Byte[],System.UIntPtr,System.Byte[],System.UIntPtr,System.Double,System.Int16,System.Double@)">
             <summary> Calculates the p-value and related statistics of the partial f-test (used for testing the inclusion/exclusion variables). </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_MLR_STEPWISE(System.Double[],System.IntPtr,System.IntPtr,System.Byte[],System.IntPtr,System.Double[],System.IntPtr,System.Double,System.Double,System.Int16)">
+        <member name="M:NumXLAPI.SFSDK.NDK_MLR_STEPWISE(System.Double[],System.UIntPtr,System.UIntPtr,System.Byte[],System.UIntPtr,System.Double[],System.UIntPtr,System.Double,System.Double,System.Int16)">
             <summary> Returns a list of the selected variables after performing the stepwise regression. </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_PCA_COMP(System.Double[],System.IntPtr,System.IntPtr,System.Byte[],System.IntPtr,System.Int16,System.Int16,System.Int16,System.Double[],System.IntPtr)">
+        <member name="M:NumXLAPI.SFSDK.NDK_PCA_COMP(System.Double[],System.UIntPtr,System.UIntPtr,System.Byte[],System.UIntPtr,System.Int16,System.Int16,System.Int16,System.Double[],System.UIntPtr)">
             <summary> Returns an array of cells for the i-th principal component (or residuals). </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_PCA_COMP(System.Double[],System.IntPtr,System.IntPtr,System.Byte[],System.IntPtr,System.Int16,System.Int16,System.Int16,System.Int16,System.Double[],System.IntPtr)">
+        <member name="M:NumXLAPI.SFSDK.NDK_PCA_COMP(System.Double[],System.UIntPtr,System.UIntPtr,System.Byte[],System.UIntPtr,System.Int16,System.Int16,System.Int16,System.Int16,System.Double[],System.UIntPtr)">
             <summary> Returns an array of cells for the fitted values of the i-th input variable. </summary>
             <returns> an integer value for the status of the call. For a full list, see <see cref="T:NumXLAPI.NDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_ARMA_GOF(System.Double[],System.IntPtr,System.Double,System.Double,System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.Int16,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_ARMA_GOF(System.Double[],System.UIntPtr,System.Double,System.Double,System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.Int16,System.Double@)">
             <summary>Calculates one of the goodness-of-fit functions (e.g. LLF, AIC, BIC, etc.) of the given estimated ARIMA model</summary>
             <param name="pData">is the univariate time series data (one dimensional array)</param>
             <param name="nSize">is number of observations in the time series input array</param>
@@ -1190,7 +1190,7 @@
             <param name="retType"> is a number that determines the type of return value: 1=LLF (default), 2=AIC, 3=BIC, 4=HQC, 5=R-Squared, 6=Adjusted R-Squared. </param>
             <returns> an integer value for the status of the call. For a full list, see <see cref="!:SFSDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_ARMA_RESID(System.Double[],System.IntPtr,System.Double,System.Double,System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.Int16)">
+        <member name="M:NumXLAPI.SFSDK.NDK_ARMA_RESID(System.Double[],System.UIntPtr,System.Double,System.Double,System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.Int16)">
             <summary> Compute standardized residuals of an ARMA model function </summary>
             <param name="pData">is the univariate time series data (one dimensional array)</param>
             <param name="nSize">is number of observations in the time series input array</param>
@@ -1202,7 +1202,7 @@
             <param name="q">is the order of the MA component model. </param>
             <returns> an integer value for the status of the call. For a full list, see <see cref="!:SFSDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_ARMA_PARAM(System.Double[],System.IntPtr,System.Double@,System.Double@,System.Double[],System.IntPtr,System.Double[],System.IntPtr,NumXLAPI.MODEL_RETVAL_FUNC,System.IntPtr)">
+        <member name="M:NumXLAPI.SFSDK.NDK_ARMA_PARAM(System.Double[],System.UIntPtr,System.Double@,System.Double@,System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,NumXLAPI.MODEL_RETVAL_FUNC,System.UIntPtr)">
             <summary> Returns an array of cells for the initial (non-optimal), optimal or standard errors of the model's parameters. </summary>
             <param name="pData">is the univariate time series data (one dimensional array)</param>
             <param name="nSize">is number of observations in the time series input array</param>
@@ -1214,7 +1214,7 @@
             <param name="q">is the order of the MA component model. </param>
             <returns> an integer value for the status of the call. For a full list, see <see cref="!:SFSDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_ARMA_FORE(System.Double[],System.IntPtr,System.Double,System.Double,System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.IntPtr,NumXLAPI.FORECAST_RETVAL_FUNC,System.Double,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_ARMA_FORE(System.Double[],System.UIntPtr,System.Double,System.Double,System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.UIntPtr,NumXLAPI.FORECAST_RETVAL_FUNC,System.Double,System.Double@)">
             <summary> Calculates the out-of-sample forecast statistics. </summary>
             <param name="pData">is the univariate time series data (one dimensional array)</param>
             <param name="nSize">is number of observations in the time series input array</param>
@@ -1226,7 +1226,7 @@
             <param name="q">is the order of the MA component model. </param>
             <returns> an integer value for the status of the call. For a full list, see <see cref="!:SFSDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_ARMA_FITTED(System.Double[],System.IntPtr,System.Double,System.Double,System.Double[],System.IntPtr,System.Double[],System.IntPtr,NumXLAPI.FIT_RETVAL_FUNC)">
+        <member name="M:NumXLAPI.SFSDK.NDK_ARMA_FITTED(System.Double[],System.UIntPtr,System.Double,System.Double,System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,NumXLAPI.FIT_RETVAL_FUNC)">
             <summary> Returns an array of cells for the fitted values (i.e. mean, volatility and residuals) </summary>
             <param name="pData">is the univariate time series data (one dimensional array)</param>
             <param name="nSize">is number of observations in the time series input array</param>
@@ -1239,7 +1239,7 @@
             <param name="retType">is a number that determines the type of return value: 1 (or missing)=Fitted Mean,2=STDEV/VOL, 3=Residuals, 4=Standardized residuals.</param>
             <returns> an integer value for the status of the call. For a full list, see <see cref="!:SFSDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_ARMA_VALIDATE(System.Double,System.Double,System.Double[],System.IntPtr,System.Double[],System.IntPtr)">
+        <member name="M:NumXLAPI.SFSDK.NDK_ARMA_VALIDATE(System.Double,System.Double,System.Double[],System.UIntPtr,System.Double[],System.UIntPtr)">
             <summary> Examines the model's parameters for stability constraints (e.g. stationary, etc.).  </summary>
             <param name="mean">is the ARMA model mean (i.e. mu).</param>
             <param name="sigma">is the standard deviation of the model's residuals/innovations </param>
@@ -1249,7 +1249,7 @@
             <param name="q">is the order of the MA component model. </param>
             <returns> an integer value for the status of the call. For a full list, see <see cref="!:SFSDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_ARMA_SIM(System.Double,System.Double,System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.Int32,System.Double[],System.IntPtr)">
+        <member name="M:NumXLAPI.SFSDK.NDK_ARMA_SIM(System.Double,System.Double,System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.Int32,System.Double[],System.UIntPtr)">
             <summary> Calculates the out-of-sample forecast statistics. </summary>
             <param name="pData">is the univariate time series data (one dimensional array)</param>
             <param name="nSize">is number of observations in the time series input array</param>
@@ -1261,7 +1261,7 @@
             <param name="q">is the order of the MA component model. </param>
             <returns> an integer value for the status of the call. For a full list, see <see cref="!:SFSDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_ARIMA_VALIDATE(System.Double,System.Double,System.Int16,System.Double[],System.IntPtr,System.Double[],System.IntPtr)">
+        <member name="M:NumXLAPI.SFSDK.NDK_ARIMA_VALIDATE(System.Double,System.Double,System.Int16,System.Double[],System.UIntPtr,System.Double[],System.UIntPtr)">
             <summary> Examines the model's parameters for stability constraints (e.g. stationary, etc.).  </summary>
             <param name="mean">is the ARMA model mean (i.e. mu).</param>
             <param name="sigma">is the standard deviation of the model's residuals/innovations </param>
@@ -1271,7 +1271,7 @@
             <param name="q">is the order of the MA component model. </param>
             <returns> an integer value for the status of the call. For a full list, see <see cref="!:SFSDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_ARIMA_GOF(System.Double[],System.IntPtr,System.Double,System.Double,System.Int16,System.Double[],System.IntPtr,System.Double[],System.IntPtr,NumXLAPI.GOODNESS_OF_FIT_FUNC,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_ARIMA_GOF(System.Double[],System.UIntPtr,System.Double,System.Double,System.Int16,System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,NumXLAPI.GOODNESS_OF_FIT_FUNC,System.Double@)">
             <summary> Computes the log-likelihood ((LLF), Akaike Information Criterion (AIC) or other goodness of fit function of the ARIMA model.  </summary>
             <param name="mean">is the ARMA model mean (i.e. mu).</param>
             <param name="sigma">is the standard deviation of the model's residuals/innovations </param>
@@ -1281,10 +1281,10 @@
             <param name="q">is the order of the MA component model. </param>
             <returns> an integer value for the status of the call. For a full list, see <see cref="!:SFSDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_ARIMA_PARAM(System.Double[],System.IntPtr,System.Double@,System.Double@,System.Int16,System.Double[],System.IntPtr,System.Double[],System.IntPtr,NumXLAPI.MODEL_RETVAL_FUNC,System.IntPtr)">
+        <member name="M:NumXLAPI.SFSDK.NDK_ARIMA_PARAM(System.Double[],System.UIntPtr,System.Double@,System.Double@,System.Int16,System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,NumXLAPI.MODEL_RETVAL_FUNC,System.UIntPtr)">
             <summary> Returns an array of cells for the initial (non-optimal), optimal or standard errors of the model's parameters.  </summary>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_ARIMA_SIM(System.Double[],System.IntPtr,System.Double,System.Double,System.Int16,System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.IntPtr,System.IntPtr,System.Double[],System.IntPtr)">
+        <member name="M:NumXLAPI.SFSDK.NDK_ARIMA_SIM(System.Double[],System.UIntPtr,System.Double,System.Double,System.Int16,System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.UIntPtr,System.UIntPtr,System.Double[],System.UIntPtr)">
             <summary>
             Returns an array of cells for the simulated values 
             </summary>
@@ -1303,7 +1303,7 @@
             <param name="nSteps"></param>
             <returns></returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_ARIMA_FORE(System.Double[],System.IntPtr,System.Double,System.Double,System.Int16,System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.IntPtr,NumXLAPI.FORECAST_RETVAL_FUNC,System.Double,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_ARIMA_FORE(System.Double[],System.UIntPtr,System.Double,System.Double,System.Int16,System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.UIntPtr,NumXLAPI.FORECAST_RETVAL_FUNC,System.Double,System.Double@)">
             <summary>
             Calculates the out-of-sample forecast statistics.
             </summary>
@@ -1322,7 +1322,7 @@
             <param name="retVal"></param>
             <returns></returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_ARIMA_FITTED(System.Double[],System.IntPtr,System.Double,System.Double,System.Int16,System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.Int16)">
+        <member name="M:NumXLAPI.SFSDK.NDK_ARIMA_FITTED(System.Double[],System.UIntPtr,System.Double,System.Double,System.Int16,System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.Int16)">
             <summary>
             Returns an array of cells for the fitted values (i.e. mean, volatility and residuals)
             </summary>
@@ -1338,13 +1338,13 @@
             <param name="retType"></param>
             <returns></returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_SARIMA_GOF(System.Double[],System.IntPtr,System.Double,System.Double,System.Int16,System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.Int16,System.Double[],System.IntPtr,System.Double[],System.IntPtr,NumXLAPI.GOODNESS_OF_FIT_FUNC,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_SARIMA_GOF(System.Double[],System.UIntPtr,System.Double,System.Double,System.Int16,System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.Int16,System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,NumXLAPI.GOODNESS_OF_FIT_FUNC,System.Double@)">
             <summary> Calculates one of the goodness-of-fit functions (e.g. LLF, AIC, BIC, etc.) of the given estimated FARIMA model </summary>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_SARIMA_RESID(System.Double[],System.IntPtr,System.Double,System.Double,System.Int16,System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.Int16,System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.Int16)">
+        <member name="M:NumXLAPI.SFSDK.NDK_SARIMA_RESID(System.Double[],System.UIntPtr,System.Double,System.Double,System.Int16,System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.Int16,System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.Int16)">
             <summary> Returns an array for the standardized residuals of a given SARIMA model </summary>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_AIRLINE_GOF(System.Double[],System.IntPtr,System.Double,System.Double,System.Int16,System.Double,System.Double,NumXLAPI.GOODNESS_OF_FIT_FUNC,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_AIRLINE_GOF(System.Double[],System.UIntPtr,System.Double,System.Double,System.Int16,System.Double,System.Double,NumXLAPI.GOODNESS_OF_FIT_FUNC,System.Double@)">
             <summary>Calculates one of the goodness-of-fit functions (e.g. LLF, AIC, BIC, etc.) of the given estimated ARIMA model </summary>
             <param name="pData">is the univariate time series data (one dimensional array)</param>
             <param name="nSize">is number of observations in the time series input array</param>
@@ -1356,7 +1356,7 @@
             <param name="retType"> is a number that determines the type of return value: 1=standardized (default), 2=non-standardized. </param>    
             <returns> an integer value for the status of the call. For a full list, see <see cref="!:SFSDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_AIRLINE_RESID(System.Double[],System.IntPtr,System.Double,System.Double,System.Int16,System.Double,System.Double,NumXLAPI.RESID_RETVAL_FUNC)">
+        <member name="M:NumXLAPI.SFSDK.NDK_AIRLINE_RESID(System.Double[],System.UIntPtr,System.Double,System.Double,System.Int16,System.Double,System.Double,NumXLAPI.RESID_RETVAL_FUNC)">
             <summary>Calculates one of the goodness-of-fit functions (e.g. LLF, AIC, BIC, etc.) of the given estimated ARIMA model </summary>
             <param name="pData">is the univariate time series data (one dimensional array)</param>
             <param name="nSize">is number of observations in the time series input array</param>
@@ -1368,7 +1368,7 @@
             <param name="retType"> is a number that determines the type of return value: 1=LLF (default), 2=AIC, 3=BIC, 4=HQC, 5=R-Squared, 6=Adjusted R-Squared. </param>    
             <returns> an integer value for the status of the call. For a full list, see <see cref="!:SFSDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_AIRLINE_PARAM(System.Double[],System.IntPtr,System.Double@,System.Double@,System.Int16,System.Double@,System.Double@,NumXLAPI.MODEL_RETVAL_FUNC,System.IntPtr)">
+        <member name="M:NumXLAPI.SFSDK.NDK_AIRLINE_PARAM(System.Double[],System.UIntPtr,System.Double@,System.Double@,System.Int16,System.Double@,System.Double@,NumXLAPI.MODEL_RETVAL_FUNC,System.UIntPtr)">
             <summary>Calculates one of the goodness-of-fit functions (e.g. LLF, AIC, BIC, etc.) of the given estimated ARIMA model </summary>
             <param name="pData">is the univariate time series data (one dimensional array)</param>
             <param name="nSize">is number of observations in the time series input array</param>
@@ -1381,7 +1381,7 @@
             <param name="maxIter"> is a the maximum iterations used during model's calibration. </param>    
             <returns> an integer value for the status of the call. For a full list, see <see cref="!:SFSDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_AIRLINE_FORE(System.Double[],System.IntPtr,System.Double,System.Double,System.Int16,System.Double,System.Double,System.IntPtr,NumXLAPI.FORECAST_RETVAL_FUNC,System.Double,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_AIRLINE_FORE(System.Double[],System.UIntPtr,System.Double,System.Double,System.Int16,System.Double,System.Double,System.UIntPtr,NumXLAPI.FORECAST_RETVAL_FUNC,System.Double,System.Double@)">
             <summary>Calculates one of the goodness-of-fit functions (e.g. LLF, AIC, BIC, etc.) of the given estimated ARIMA model </summary>
             <param name="pData">is the univariate time series data (one dimensional array)</param>
             <param name="nSize">is number of observations in the time series input array</param>
@@ -1394,7 +1394,7 @@
             <param name="maxIter"> is a the maximum iterations used during model's calibration. </param>    
             <returns> an integer value for the status of the call. For a full list, see <see cref="!:SFSDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_AIRLINE_FITTED(System.Double[],System.IntPtr,System.Double,System.Double,System.Int16,System.Double,System.Double,NumXLAPI.FIT_RETVAL_FUNC)">
+        <member name="M:NumXLAPI.SFSDK.NDK_AIRLINE_FITTED(System.Double[],System.UIntPtr,System.Double,System.Double,System.Int16,System.Double,System.Double,NumXLAPI.FIT_RETVAL_FUNC)">
             <summary>Calculates one of the goodness-of-fit functions (e.g. LLF, AIC, BIC, etc.) of the given estimated ARIMA model </summary>
             <param name="pData">is the univariate time series data (one dimensional array)</param>
             <param name="nSize">is number of observations in the time series input array</param>
@@ -1416,7 +1416,7 @@
             <param name="retType"> is a number that determines the type of return value: 1=Guess (default), 2=calibrate </param>    
             <returns> an integer value for the status of the call. For a full list, see <see cref="!:SFSDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_GARCH_GOF(System.Double[],System.IntPtr,System.Double,System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.Int16,System.Double,System.Int16,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_GARCH_GOF(System.Double[],System.UIntPtr,System.Double,System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.Int16,System.Double,System.Int16,System.Double@)">
             <summary>Calculates one of the goodness-of-fit functions (e.g. LLF, AIC, BIC, etc.) of the given estimated ARIMA model </summary>
             <param name="pData">is the univariate time series data (one dimensional array)</param>
             <param name="nSize">is number of observations in the time series input array</param>
@@ -1431,7 +1431,7 @@
             <param name="retVal"> is the output value </param>    
             <returns> an integer value for the status of the call. For a full list, see <see cref="!:SFSDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_GARCH_RESID(System.Double[],System.IntPtr,System.Double,System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.Int16,System.Double,System.Int16)">
+        <member name="M:NumXLAPI.SFSDK.NDK_GARCH_RESID(System.Double[],System.UIntPtr,System.Double,System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.Int16,System.Double,System.Int16)">
             <summary>Returns an array of the standardized residuals for the fitted GARCH model </summary>
             <param name="pData">is the univariate time series data (one dimensional array)</param>
             <param name="nSize">is number of observations in the time series input array</param>
@@ -1446,22 +1446,7 @@
             <param name="retVal"> is the output value </param>    
             <returns> an integer value for the status of the call. For a full list, see <see cref="!:SFSDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_GARCH_PARAM(System.Double[],System.IntPtr,System.Double@,System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.Int16,System.Double@,System.Int16,System.IntPtr)">
-            <summary>Returns an array of the standardized residuals for the fitted GARCH model </summary>
-            <param name="pData">is the univariate time series data (one dimensional array)</param>
-            <param name="nSize">is number of observations in the time series input array</param>
-            <param name="mu">is the GARCH model mean (i.e. mu).</param>
-            <param name="Alphas">are the parameters of the ARCH(p) component model (starting with the lowest lag) </param>
-            <param name="p">is the order of the ARCH component model </param>
-            <param name="Betas">are the parameters of the GARCH(q) component model (starting with the lowest lag)</param>
-            <param name="q">are the order of the GARCH component model </param>
-            <param name="nInnovationType">is the probability distribution function of the innovations/residuals (1=Gaussian (default), 2=t-Distribution, 3=GED)</param>
-            <param name="nu">is the shape factor (or degrees of freedom) of the innovations/residuals probability distribution function</param>
-            <param name="retType"> is a number that determines the type of return value: 1=Guess (default), 2=calibrate </param>    
-            <param name="maxIter"> is maximum number of iterations </param>    
-            <returns> an integer value for the status of the call. For a full list, see <see cref="!:SFSDK_RETCODE"/>.</returns>
-        </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_GARCH_SIM(System.Double[],System.IntPtr,System.Double,System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.Int16,System.Double,System.IntPtr,System.IntPtr,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_GARCH_PARAM(System.Double[],System.UIntPtr,System.Double@,System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.Int16,System.Double@,System.Int16,System.UIntPtr)">
             <summary>Returns an array of the standardized residuals for the fitted GARCH model </summary>
             <param name="pData">is the univariate time series data (one dimensional array)</param>
             <param name="nSize">is number of observations in the time series input array</param>
@@ -1476,7 +1461,22 @@
             <param name="maxIter"> is maximum number of iterations </param>    
             <returns> an integer value for the status of the call. For a full list, see <see cref="!:SFSDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_GARCH_FORE(System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.Double,System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.Int16,System.Double,System.IntPtr,System.Int16,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_GARCH_SIM(System.Double[],System.UIntPtr,System.Double,System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.Int16,System.Double,System.UIntPtr,System.UIntPtr,System.Double@)">
+            <summary>Returns an array of the standardized residuals for the fitted GARCH model </summary>
+            <param name="pData">is the univariate time series data (one dimensional array)</param>
+            <param name="nSize">is number of observations in the time series input array</param>
+            <param name="mu">is the GARCH model mean (i.e. mu).</param>
+            <param name="Alphas">are the parameters of the ARCH(p) component model (starting with the lowest lag) </param>
+            <param name="p">is the order of the ARCH component model </param>
+            <param name="Betas">are the parameters of the GARCH(q) component model (starting with the lowest lag)</param>
+            <param name="q">are the order of the GARCH component model </param>
+            <param name="nInnovationType">is the probability distribution function of the innovations/residuals (1=Gaussian (default), 2=t-Distribution, 3=GED)</param>
+            <param name="nu">is the shape factor (or degrees of freedom) of the innovations/residuals probability distribution function</param>
+            <param name="retType"> is a number that determines the type of return value: 1=Guess (default), 2=calibrate </param>    
+            <param name="maxIter"> is maximum number of iterations </param>    
+            <returns> an integer value for the status of the call. For a full list, see <see cref="!:SFSDK_RETCODE"/>.</returns>
+        </member>
+        <member name="M:NumXLAPI.SFSDK.NDK_GARCH_FORE(System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.Double,System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.Int16,System.Double,System.UIntPtr,System.Int16,System.Double@)">
             <summary>Returns an array of the standardized residuals for the fitted GARCH model </summary>
             <param name="pData">is the univariate time series data (one dimensional array)</param>
             <param name="nSize">is number of observations in the time series input array</param>
@@ -1491,7 +1491,7 @@
             <param name="retVal"> is the output value </param>    
             <returns> an integer value for the status of the call. For a full list, see <see cref="!:SFSDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_GARCH_FITTED(System.Double[],System.IntPtr,System.Double,System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.Int16,System.Double,System.Int16)">
+        <member name="M:NumXLAPI.SFSDK.NDK_GARCH_FITTED(System.Double[],System.UIntPtr,System.Double,System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.Int16,System.Double,System.Int16)">
             <summary>Returns an array of the standardized residuals for the fitted GARCH model </summary>
             <param name="pData">is the univariate time series data (one dimensional array)</param>
             <param name="nSize">is number of observations in the time series input array</param>
@@ -1506,7 +1506,7 @@
             <param name="retVal"> is the output value </param>    
             <returns> an integer value for the status of the call. For a full list, see <see cref="!:SFSDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_GARCH_LRVAR(System.Double,System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.Int16,System.Double,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_GARCH_LRVAR(System.Double,System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.Int16,System.Double,System.Double@)">
             <summary>Returns an array of the standardized residuals for the fitted GARCH model </summary>
             <param name="pData">is the univariate time series data (one dimensional array)</param>
             <param name="nSize">is number of observations in the time series input array</param>
@@ -1521,7 +1521,7 @@
             <param name="retVal"> is the output value </param>    
             <returns> an integer value for the status of the call. For a full list, see <see cref="!:SFSDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_GARCH_VALIDATE(System.Double,System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.Int16,System.Double)">
+        <member name="M:NumXLAPI.SFSDK.NDK_GARCH_VALIDATE(System.Double,System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.Int16,System.Double)">
             <summary>Returns an array of the standardized residuals for the fitted GARCH model </summary>
             <param name="pData">is the univariate time series data (one dimensional array)</param>
             <param name="nSize">is number of observations in the time series input array</param>
@@ -1536,39 +1536,7 @@
             <param name="retVal"> is the output value </param>    
             <returns> an integer value for the status of the call. For a full list, see <see cref="!:SFSDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_EGARCH_GOF(System.Double[],System.IntPtr,System.Double,System.Double[],System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.Int16,System.Double,System.Int16,System.Double@)">
-            <summary>Returns an array of the standardized residuals for the fitted GARCH model </summary>
-            <param name="pData">is the univariate time series data (one dimensional array)</param>
-            <param name="nSize">is number of observations in the time series input array</param>
-            <param name="mu">is the GARCH model mean (i.e. mu).</param>
-            <param name="Alphas">are the parameters of the ARCH(p) component model (starting with the lowest lag) </param>
-            <param name="Gammas">are the leverage parameters (starting with the lowest lag). The number of gamma-coefficients must match the number of alpha-coefficients </param>
-            <param name="p">is the order of the ARCH component model </param>
-            <param name="Betas">are the parameters of the GARCH(q) component model (starting with the lowest lag)</param>
-            <param name="q">are the order of the GARCH component model </param>
-            <param name="nInnovationType">is the probability distribution function of the innovations/residuals (1=Gaussian (default), 2=t-Distribution, 3=GED)</param>
-            <param name="nu">is the shape factor (or degrees of freedom) of the innovations/residuals probability distribution function</param>
-            <param name="retType"> is a number that determines the type of return value: 1=Guess (default), 2=calibrate </param>    
-            <param name="retVal"> is the output value </param>    
-            <returns> an integer value for the status of the call. For a full list, see <see cref="!:SFSDK_RETCODE"/>.</returns>
-        </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_EGARCH_RESID(System.Double[],System.IntPtr,System.Double,System.Double[],System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.Int16,System.Double,System.Int16)">
-            <summary>Returns an array of the standardized residuals for the fitted GARCH model </summary>
-            <param name="pData">is the univariate time series data (one dimensional array)</param>
-            <param name="nSize">is number of observations in the time series input array</param>
-            <param name="mu">is the GARCH model mean (i.e. mu).</param>
-            <param name="Alphas">are the parameters of the ARCH(p) component model (starting with the lowest lag) </param>
-            <param name="Gammas">are the leverage parameters (starting with the lowest lag). The number of gamma-coefficients must match the number of alpha-coefficients </param>
-            <param name="p">is the order of the ARCH component model </param>
-            <param name="Betas">are the parameters of the GARCH(q) component model (starting with the lowest lag)</param>
-            <param name="q">are the order of the GARCH component model </param>
-            <param name="nInnovationType">is the probability distribution function of the innovations/residuals (1=Gaussian (default), 2=t-Distribution, 3=GED)</param>
-            <param name="nu">is the shape factor (or degrees of freedom) of the innovations/residuals probability distribution function</param>
-            <param name="retType"> is a number that determines the type of return value: 1=Guess (default), 2=calibrate </param>    
-            <param name="retVal"> is the output value </param>    
-            <returns> an integer value for the status of the call. For a full list, see <see cref="!:SFSDK_RETCODE"/>.</returns>
-        </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_EGARCH_PARAM(System.Double[],System.IntPtr,System.Double@,System.Double[],System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.Int16,System.Double@,System.Int16,System.IntPtr)">
+        <member name="M:NumXLAPI.SFSDK.NDK_EGARCH_GOF(System.Double[],System.UIntPtr,System.Double,System.Double[],System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.Int16,System.Double,System.Int16,System.Double@)">
             <summary>Returns an array of the standardized residuals for the fitted GARCH model </summary>
             <param name="pData">is the univariate time series data (one dimensional array)</param>
             <param name="nSize">is number of observations in the time series input array</param>
@@ -1584,7 +1552,7 @@
             <param name="retVal"> is the output value </param>    
             <returns> an integer value for the status of the call. For a full list, see <see cref="!:SFSDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_EGARCH_SIM(System.Double[],System.IntPtr,System.Double,System.Double[],System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.Int16,System.Double,System.IntPtr,System.IntPtr,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_EGARCH_RESID(System.Double[],System.UIntPtr,System.Double,System.Double[],System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.Int16,System.Double,System.Int16)">
             <summary>Returns an array of the standardized residuals for the fitted GARCH model </summary>
             <param name="pData">is the univariate time series data (one dimensional array)</param>
             <param name="nSize">is number of observations in the time series input array</param>
@@ -1600,7 +1568,7 @@
             <param name="retVal"> is the output value </param>    
             <returns> an integer value for the status of the call. For a full list, see <see cref="!:SFSDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_EGARCH_FORE(System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.Double,System.Double[],System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.Int16,System.Double,System.IntPtr,System.Int16,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_EGARCH_PARAM(System.Double[],System.UIntPtr,System.Double@,System.Double[],System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.Int16,System.Double@,System.Int16,System.UIntPtr)">
             <summary>Returns an array of the standardized residuals for the fitted GARCH model </summary>
             <param name="pData">is the univariate time series data (one dimensional array)</param>
             <param name="nSize">is number of observations in the time series input array</param>
@@ -1616,7 +1584,7 @@
             <param name="retVal"> is the output value </param>    
             <returns> an integer value for the status of the call. For a full list, see <see cref="!:SFSDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_EGARCH_FITTED(System.Double[],System.IntPtr,System.Double,System.Double[],System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.Int16,System.Double,System.Int16)">
+        <member name="M:NumXLAPI.SFSDK.NDK_EGARCH_SIM(System.Double[],System.UIntPtr,System.Double,System.Double[],System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.Int16,System.Double,System.UIntPtr,System.UIntPtr,System.Double@)">
             <summary>Returns an array of the standardized residuals for the fitted GARCH model </summary>
             <param name="pData">is the univariate time series data (one dimensional array)</param>
             <param name="nSize">is number of observations in the time series input array</param>
@@ -1632,7 +1600,39 @@
             <param name="retVal"> is the output value </param>    
             <returns> an integer value for the status of the call. For a full list, see <see cref="!:SFSDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_EGARCH_LRVAR(System.Double,System.Double[],System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.Int16,System.Double,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_EGARCH_FORE(System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.Double,System.Double[],System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.Int16,System.Double,System.UIntPtr,System.Int16,System.Double@)">
+            <summary>Returns an array of the standardized residuals for the fitted GARCH model </summary>
+            <param name="pData">is the univariate time series data (one dimensional array)</param>
+            <param name="nSize">is number of observations in the time series input array</param>
+            <param name="mu">is the GARCH model mean (i.e. mu).</param>
+            <param name="Alphas">are the parameters of the ARCH(p) component model (starting with the lowest lag) </param>
+            <param name="Gammas">are the leverage parameters (starting with the lowest lag). The number of gamma-coefficients must match the number of alpha-coefficients </param>
+            <param name="p">is the order of the ARCH component model </param>
+            <param name="Betas">are the parameters of the GARCH(q) component model (starting with the lowest lag)</param>
+            <param name="q">are the order of the GARCH component model </param>
+            <param name="nInnovationType">is the probability distribution function of the innovations/residuals (1=Gaussian (default), 2=t-Distribution, 3=GED)</param>
+            <param name="nu">is the shape factor (or degrees of freedom) of the innovations/residuals probability distribution function</param>
+            <param name="retType"> is a number that determines the type of return value: 1=Guess (default), 2=calibrate </param>    
+            <param name="retVal"> is the output value </param>    
+            <returns> an integer value for the status of the call. For a full list, see <see cref="!:SFSDK_RETCODE"/>.</returns>
+        </member>
+        <member name="M:NumXLAPI.SFSDK.NDK_EGARCH_FITTED(System.Double[],System.UIntPtr,System.Double,System.Double[],System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.Int16,System.Double,System.Int16)">
+            <summary>Returns an array of the standardized residuals for the fitted GARCH model </summary>
+            <param name="pData">is the univariate time series data (one dimensional array)</param>
+            <param name="nSize">is number of observations in the time series input array</param>
+            <param name="mu">is the GARCH model mean (i.e. mu).</param>
+            <param name="Alphas">are the parameters of the ARCH(p) component model (starting with the lowest lag) </param>
+            <param name="Gammas">are the leverage parameters (starting with the lowest lag). The number of gamma-coefficients must match the number of alpha-coefficients </param>
+            <param name="p">is the order of the ARCH component model </param>
+            <param name="Betas">are the parameters of the GARCH(q) component model (starting with the lowest lag)</param>
+            <param name="q">are the order of the GARCH component model </param>
+            <param name="nInnovationType">is the probability distribution function of the innovations/residuals (1=Gaussian (default), 2=t-Distribution, 3=GED)</param>
+            <param name="nu">is the shape factor (or degrees of freedom) of the innovations/residuals probability distribution function</param>
+            <param name="retType"> is a number that determines the type of return value: 1=Guess (default), 2=calibrate </param>    
+            <param name="retVal"> is the output value </param>    
+            <returns> an integer value for the status of the call. For a full list, see <see cref="!:SFSDK_RETCODE"/>.</returns>
+        </member>
+        <member name="M:NumXLAPI.SFSDK.NDK_EGARCH_LRVAR(System.Double,System.Double[],System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.Int16,System.Double,System.Double@)">
             <summary>Returns an array of the standardized residuals for the fitted GARCH model </summary>
             <param name="mu">is the GARCH model mean (i.e. mu).</param>
             <param name="Alphas">are the parameters of the ARCH(p) component model (starting with the lowest lag) </param>
@@ -1646,7 +1646,7 @@
             <param name="retVal"> is the output value </param>    
             <returns> an integer value for the status of the call. For a full list, see <see cref="!:SFSDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_EGARCHM_VALIDATE(System.Double,System.Double[],System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.Int16,System.Double)">
+        <member name="M:NumXLAPI.SFSDK.NDK_EGARCHM_VALIDATE(System.Double,System.Double[],System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.Int16,System.Double)">
             <summary>Returns an array of the standardized residuals for the fitted GARCH model </summary>
             <param name="mu">is the GARCH model mean (i.e. mu).</param>
             <param name="Alphas">are the parameters of the ARCH(p) component model (starting with the lowest lag) </param>
@@ -1660,7 +1660,7 @@
             <param name="retVal"> is the output value </param>    
             <returns> an integer value for the status of the call. For a full list, see <see cref="!:SFSDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_GARCHM_GOF(System.Double[],System.IntPtr,System.Double,System.Double,System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.Int16,System.Double,System.Int16,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_GARCHM_GOF(System.Double[],System.UIntPtr,System.Double,System.Double,System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.Int16,System.Double,System.Int16,System.Double@)">
             <summary>Returns an array of the standardized residuals for the fitted GARCH model </summary>
             <param name="mu">is the GARCH model mean (i.e. mu).</param>
             <param name="Alphas">are the parameters of the ARCH(p) component model (starting with the lowest lag) </param>
@@ -1674,7 +1674,7 @@
             <param name="retVal"> is the output value </param>    
             <returns> an integer value for the status of the call. For a full list, see <see cref="!:SFSDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_GARCHM_RESID(System.Double[],System.IntPtr,System.Double,System.Double,System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.Int16,System.Double,System.Int16)">
+        <member name="M:NumXLAPI.SFSDK.NDK_GARCHM_RESID(System.Double[],System.UIntPtr,System.Double,System.Double,System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.Int16,System.Double,System.Int16)">
             <summary>Returns an array of the standardized residuals for the fitted GARCH model </summary>
             <param name="mu">is the GARCH model mean (i.e. mu).</param>
             <param name="Alphas">are the parameters of the ARCH(p) component model (starting with the lowest lag) </param>
@@ -1688,7 +1688,7 @@
             <param name="retVal"> is the output value </param>    
             <returns> an integer value for the status of the call. For a full list, see <see cref="!:SFSDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_GARCHM_PARAM(System.Double[],System.IntPtr,System.Double@,System.Double@,System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.Int16,System.Double@,System.Int16,System.IntPtr)">
+        <member name="M:NumXLAPI.SFSDK.NDK_GARCHM_PARAM(System.Double[],System.UIntPtr,System.Double@,System.Double@,System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.Int16,System.Double@,System.Int16,System.UIntPtr)">
             <summary>Returns an array of the standardized residuals for the fitted GARCH model </summary>
             <param name="mu">is the GARCH model mean (i.e. mu).</param>
             <param name="Alphas">are the parameters of the ARCH(p) component model (starting with the lowest lag) </param>
@@ -1702,7 +1702,7 @@
             <param name="retVal"> is the output value </param>    
             <returns> an integer value for the status of the call. For a full list, see <see cref="!:SFSDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_GARCHM_SIM(System.Double[],System.IntPtr,System.Double,System.Double,System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.Int16,System.Double,System.IntPtr,System.IntPtr,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_GARCHM_SIM(System.Double[],System.UIntPtr,System.Double,System.Double,System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.Int16,System.Double,System.UIntPtr,System.UIntPtr,System.Double@)">
             <summary>Returns an array of the standardized residuals for the fitted GARCH model </summary>
             <param name="mu">is the GARCH model mean (i.e. mu).</param>
             <param name="Alphas">are the parameters of the ARCH(p) component model (starting with the lowest lag) </param>
@@ -1716,7 +1716,7 @@
             <param name="retVal"> is the output value </param>    
             <returns> an integer value for the status of the call. For a full list, see <see cref="!:SFSDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_GARCHM_FORE(System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.Double,System.Double,System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.Int16,System.Double,System.IntPtr,System.Int16,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_GARCHM_FORE(System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.Double,System.Double,System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.Int16,System.Double,System.UIntPtr,System.Int16,System.Double@)">
             <summary>Returns an array of the standardized residuals for the fitted GARCH model </summary>
             <param name="mu">is the GARCH model mean (i.e. mu).</param>
             <param name="Alphas">are the parameters of the ARCH(p) component model (starting with the lowest lag) </param>
@@ -1730,7 +1730,7 @@
             <param name="retVal"> is the output value </param>    
             <returns> an integer value for the status of the call. For a full list, see <see cref="!:SFSDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_GARCHM_FITTED(System.Double[],System.IntPtr,System.Double,System.Double,System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.Int16,System.Double,System.Int16)">
+        <member name="M:NumXLAPI.SFSDK.NDK_GARCHM_FITTED(System.Double[],System.UIntPtr,System.Double,System.Double,System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.Int16,System.Double,System.Int16)">
             <summary>Returns an array of the standardized residuals for the fitted GARCH model </summary>
             <param name="mu">is the GARCH model mean (i.e. mu).</param>
             <param name="Alphas">are the parameters of the ARCH(p) component model (starting with the lowest lag) </param>
@@ -1744,7 +1744,7 @@
             <param name="retVal"> is the output value </param>    
             <returns> an integer value for the status of the call. For a full list, see <see cref="!:SFSDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_GARCHM_LRVAR(System.Double,System.Double,System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.Int16,System.Double,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_GARCHM_LRVAR(System.Double,System.Double,System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.Int16,System.Double,System.Double@)">
             <summary>Returns an array of the standardized residuals for the fitted GARCH model </summary>
             <param name="mu">is the GARCH model mean (i.e. mu).</param>
             <param name="Alphas">are the parameters of the ARCH(p) component model (starting with the lowest lag) </param>
@@ -1758,7 +1758,7 @@
             <param name="retVal"> is the output value </param>    
             <returns> an integer value for the status of the call. For a full list, see <see cref="!:SFSDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_GARCHM_VALIDATE(System.Double,System.Double,System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.Int16,System.Double)">
+        <member name="M:NumXLAPI.SFSDK.NDK_GARCHM_VALIDATE(System.Double,System.Double,System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.Int16,System.Double)">
             <summary>Returns an array of the standardized residuals for the fitted GARCH model </summary>
             <param name="mu">is the GARCH model mean (i.e. mu).</param>
             <param name="Alphas">are the parameters of the ARCH(p) component model (starting with the lowest lag) </param>
@@ -1772,7 +1772,7 @@
             <param name="retVal"> is the output value </param>    
             <returns> an integer value for the status of the call. For a full list, see <see cref="!:SFSDK_RETCODE"/>.</returns>
         </member>
-        <member name="M:NumXLAPI.SFSDK.NDK_REGRESSION(System.Double[],System.IntPtr,System.Double[],System.IntPtr,System.UInt16,System.UInt16,System.Double,System.Double,System.UInt16,System.Double,System.Double@)">
+        <member name="M:NumXLAPI.SFSDK.NDK_REGRESSION(System.Double[],System.UIntPtr,System.Double[],System.UIntPtr,System.UInt16,System.UInt16,System.Double,System.Double,System.UInt16,System.Double,System.Double@)">
             <summary>
             calculates the value of the regression function for an intermediate x-value
             </summary>
