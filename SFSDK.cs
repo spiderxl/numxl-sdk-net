@@ -357,52 +357,52 @@ namespace NumXLAPI
     /// <summary> Calculates the p-value of the statistical test for the population autocorrelation function. </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
     [DllImport(DLLName, EntryPoint = "#300", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
-    public static extern int NDK_ACFTEST([MarshalAs(UnmanagedType.LPArray)] double[] pData, UIntPtr nSize, int nLag, double targetVal, double alpha, short method, short retType, out double retVal);
+    public static extern int NDK_ACFTEST( double[] pData, UIntPtr nSize, int nLag, double targetVal, double alpha, UInt16 method, UInt16 retType, out double retVal);
 
     /// <summary> Returns the p-value of the normality test (i.e. whether a data set is well-modeled by a normal distribution). </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
     [DllImport(DLLName, EntryPoint = "#301", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
-    public static extern int NDK_NORMALTEST([MarshalAs(UnmanagedType.LPArray)] double[] pData, UIntPtr nSize, short method, short retType, out double retVal);
+    public static extern int NDK_NORMALTEST(double[] pData, UIntPtr nSize, double alpha, UInt16 method, UInt16 retType, out double retVal);
 
     /// <summary> Computes the p-value of the statistical portmanteau test (i.e. whether any of a group of autocorrelations of a time series are different from zero). </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
     [DllImport(DLLName, EntryPoint = "#302", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
-    public static extern int NDK_WNTEST([MarshalAs(UnmanagedType.LPArray)] double[] pData, UIntPtr nSize, int nLag, short argMethod, short retType, out double retVal);
+    public static extern int NDK_WNTEST(double[] pData, UIntPtr nSize, int nLag, double alpha, UInt16 argMethod, UInt16 retType, out double retVal);
 
     /// <summary> Calculates the p-value of the ARCH effect test (i.e. the white-noise test for the squared time series). </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
     [DllImport(DLLName, EntryPoint = "#303", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
-    public static extern int NDK_ARCHTEST([MarshalAs(UnmanagedType.LPArray)] double[] pData, UIntPtr nSize, int nLag, short argMethod, short retType, out double retVal);
+    public static extern int NDK_ARCHTEST(double[] pData, UIntPtr nSize, int nLag, double alpha, UInt16 argMethod, UInt16 retType, out double retVal);
 
     /// <summary> Calculates the p-value of the statistical test for the population mean. </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
     [DllImport(DLLName, EntryPoint = "#304", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
-    public static extern int NDK_MEANTEST([MarshalAs(UnmanagedType.LPArray)] double[] pData, UIntPtr nSize, double target, short argMethod, short retType, out double retVal);
+    public static extern int NDK_MEANTEST(double[] pData, UIntPtr nSize, double target, double alpha, UInt16 argMethod, UInt16 retType, out double retVal);
 
     /// <summary> Calculates the p-value of the statistical test for the population standard deviation. </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
     [DllImport(DLLName, EntryPoint = "#305", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
-    public static extern int NDK_STDEVTEST([MarshalAs(UnmanagedType.LPArray)] double[] pData, UIntPtr nSize, double target, short argMethod, short retType, out double retVal);
+    public static extern int NDK_STDEVTEST( double[] pData, UIntPtr nSize, double target, double alpha, UInt16 argMethod, UInt16 retType, out double retVal);
 
     /// <summary> Calculates the p-value of the statistical test for the population skew (i.e. 3rd moment) </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
     [DllImport(DLLName, EntryPoint = "#306", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
-    public static extern int NDK_SKEWTEST([MarshalAs(UnmanagedType.LPArray)] double[] pData, UIntPtr nSize, double target, short argMethod, short retType, out double retVal);
+    public static extern int NDK_SKEWTEST(double[] pData, UIntPtr nSize, double alpha, UInt16 argMethod, UInt16 retType, out double retVal);
 
     /// <summary> Calculates the p-value of the statistical test for the population excess kurtosis (4th moment). </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
     [DllImport(DLLName, EntryPoint = "#307", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
-    public static extern int NDK_XKURTTEST([MarshalAs(UnmanagedType.LPArray)] double[] pData, UIntPtr nSize, double target, short argMethod, short retType, out double retVal);
+    public static extern int NDK_XKURTTEST(double[] pData, UIntPtr nSize, double alpha, UInt16 argMethod, UInt16 retType, out double retVal);
 
     /// <summary> Calculates the test stats, p-value or critical value of the correlation test. </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
     [DllImport(DLLName, EntryPoint = "#308", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
-    public static extern int NDK_XCFTEST([MarshalAs(UnmanagedType.LPArray)] double[] pData1, [MarshalAs(UnmanagedType.LPArray)] double[] pData2, UIntPtr nSize, int nLag, short method, double target, short retTYpe, double alpha, out double retVal);
+    public static extern int NDK_XCFTEST(double[] pData1, double[] pData2, UIntPtr nSize, int nLag, double target, double alpha, UInt16 method, UInt16 retTYpe, out double retVal);
 
     /// <summary> Returns the p-value of the Augmented Dickey-Fuller (ADF) test, which tests for a unit root in the time series sample. </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
     [DllImport(DLLName, EntryPoint = "#309", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
-    public static extern int NDK_ADFTEST([MarshalAs(UnmanagedType.LPArray)] double[] pData, UIntPtr nSize, short maxOrder, short option, bool testDown, short argMethod, short retType, double alpha, out double retVal);
+    public static extern int NDK_ADFTEST(double[] pData, UIntPtr nSize, UInt16 maxOrder, UInt16 option, bool testDown, double alpha, UInt16 argMethod, UInt16 retType, out double retVal);
 
     /// <summary> KPSS (stationary) test function </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
@@ -413,14 +413,14 @@ namespace NumXLAPI
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
     // TODO: We need to check this function declaration
     [DllImport(DLLName, EntryPoint = "#311", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
-    public static extern int NDK_JOHANSENTEST(ref UIntPtr pData, UIntPtr nSize, UIntPtr nVars, short maxOrder, short nPolyOrder, bool tracetest, short nNoRelations, short retType, double alpha, ref double retVal);
+    public static extern int NDK_JOHANSENTEST(ref UIntPtr pData, UIntPtr nSize, UIntPtr nVars, UIntPtr maxOrder, short nPolyOrder, bool tracetest, UInt16 nNoRelations, double alpha, ref double retStat, ref double retCV);
 
     /// <summary> Returns the Johansen (cointegration) test statistics for two or more time series. </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
     // TODO: We need to check this function declaration
     [DllImport(DLLName, EntryPoint = "#312", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
     public static extern int NDK_COLNRTY_TEST(ref UIntPtr pData, UIntPtr nSize, UIntPtr nVars,
-                                              [MarshalAs(UnmanagedType.LPArray)] Byte[] mask, UIntPtr nMaskLen,
+                                              Byte[] mask, UIntPtr nMaskLen,
                                               COLNRTY_TEST_TYPE nMethod, short nColIndex, ref double retVal);
 
 
@@ -429,12 +429,12 @@ namespace NumXLAPI
     [DllImport(DLLName, EntryPoint = "#313", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
     public static extern int NDK_CHOWTEST(ref UIntPtr XX1,
                                           UIntPtr M,
-                                          [MarshalAs(UnmanagedType.LPArray)] double[] Y1,
+                                          double[] Y1,
                                           UIntPtr N1,
                                           ref UIntPtr XX2,
-                                          [MarshalAs(UnmanagedType.LPArray)] double[] Y2,
+                                          double[] Y2,
                                           UIntPtr N2,
-                                          [MarshalAs(UnmanagedType.LPArray)] Byte[] mask, UIntPtr nMaskLen,
+                                          Byte[] mask, UIntPtr nMaskLen,
                                           double intercept,
                                           TEST_RETURN retType,
                                           ref double retVal);
@@ -513,7 +513,7 @@ namespace NumXLAPI
 
     /// <summary> Compute sample skewness function </summary>
     [DllImport(DLLName, EntryPoint = "#406", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
-    public static extern int NDK_VARIANCE([MarshalAs(UnmanagedType.LPArray)] double[] pData, UIntPtr nSize, short argMenthod, ref double retVal);
+    public static extern int NDK_VARIANCE( double[] pData, UIntPtr nSize, short argMenthod, ref double retVal);
 
     /// <summary> Compute sample skewness function </summary>
     [DllImport(DLLName, EntryPoint = "#407", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
