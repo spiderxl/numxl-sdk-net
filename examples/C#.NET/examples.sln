@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "STDEVTEST", "STDEVTEST\STDEVTEST.csproj", "{4A5CC63B-CE79-4A2E-A9FC-441598750857}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JohansenTest", "JohansenTest\JohansenTest.csproj", "{0B1D05FF-4238-49C8-9150-83832A9D9379}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DIFF", "DIFF\DIFF.csproj", "{34F0FC65-962A-485A-B636-01399DAD6A4D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -19,6 +23,19 @@ Global
 		{4A5CC63B-CE79-4A2E-A9FC-441598750857}.Release|x64.Build.0 = Release|x64
 		{4A5CC63B-CE79-4A2E-A9FC-441598750857}.Release|x86.ActiveCfg = Release|x86
 		{4A5CC63B-CE79-4A2E-A9FC-441598750857}.Release|x86.Build.0 = Release|x86
+		{0B1D05FF-4238-49C8-9150-83832A9D9379}.Debug|x64.ActiveCfg = Debug|x64
+		{0B1D05FF-4238-49C8-9150-83832A9D9379}.Debug|x64.Build.0 = Debug|x64
+		{0B1D05FF-4238-49C8-9150-83832A9D9379}.Debug|x86.ActiveCfg = Debug|x86
+		{0B1D05FF-4238-49C8-9150-83832A9D9379}.Debug|x86.Build.0 = Debug|x86
+		{0B1D05FF-4238-49C8-9150-83832A9D9379}.Release|x64.ActiveCfg = Release|x86
+		{0B1D05FF-4238-49C8-9150-83832A9D9379}.Release|x86.ActiveCfg = Release|x86
+		{0B1D05FF-4238-49C8-9150-83832A9D9379}.Release|x86.Build.0 = Release|x86
+		{34F0FC65-962A-485A-B636-01399DAD6A4D}.Debug|x64.ActiveCfg = Debug|x64
+		{34F0FC65-962A-485A-B636-01399DAD6A4D}.Debug|x86.ActiveCfg = Debug|x86
+		{34F0FC65-962A-485A-B636-01399DAD6A4D}.Debug|x86.Build.0 = Debug|x86
+		{34F0FC65-962A-485A-B636-01399DAD6A4D}.Release|x64.ActiveCfg = Release|x86
+		{34F0FC65-962A-485A-B636-01399DAD6A4D}.Release|x86.ActiveCfg = Release|x86
+		{34F0FC65-962A-485A-B636-01399DAD6A4D}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
