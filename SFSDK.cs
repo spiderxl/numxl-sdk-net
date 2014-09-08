@@ -425,6 +425,77 @@ namespace NumXLAPI
                                               ref double retStat, 
                                               ref double retCV);
 
+    /// <summary>
+    /// Returns the Johansen (cointegration) test statistics for two or more time series.
+    /// </summary>
+    /// <param name="pData"></param>
+    /// <param name="maxOrder"></param>
+    /// <param name="nPolyOrder"></param>
+    /// <param name="tracetest"></param>
+    /// <param name="nNoRelations"></param>
+    /// <param name="alpha"> significiance level</param>
+    /// <param name="retStat"> test statistics (aka Z-score)</param>
+    /// <param name="retCV"> test critical value. </param>
+    /// <returns></returns>
+    public static NDK_RETCODE JohansenTest(double[,] pData,
+                                              UIntPtr maxOrder,
+                                              short nPolyOrder,
+                                              bool tracetest,
+                                              UInt16 nNoRelations,
+                                              double alpha,
+                                              ref double retStat,
+                                              ref double retCV)
+    {
+      NDK_RETCODE retVal = NDK_RETCODE.NDK_FAILED;
+
+
+      // Ready to call Johansen test
+      retStat = double.NaN;
+      retCV = double.NaN;
+
+      int iRow = pData.GetLength(0);   // number of rows
+      int iCol = pData.GetLength(1);   // number of columns
+
+      IntPtr[] p2dArray = new IntPtr[iRow];
+      for (int i = 0; i < iRow; i++)
+      {
+        double[] pdArray = new double[iCol];
+
+        // Fill row (array)
+        for (int j = 0; j < iCol; j++)
+        {
+          pdArray[j] = pData[i, j];
+        }
+
+        p2dArray[i] = Marshal.AllocCoTaskMem(Marshal.SizeOf(pdArray[0]) * iCol);
+
+
+        Marshal.Copy(pdArray, 0, p2dArray[i], iCol);
+      }
+
+      IntPtr vars = (IntPtr)0;
+      IntPtr buffer = Marshal.AllocCoTaskMem(Marshal.SizeOf(vars) * iRow);
+      Marshal.Copy(p2dArray, 0, buffer, iRow);
+
+      retVal = (NDK_RETCODE)SFSDK.NDK_JOHANSENTEST(buffer,
+                                     (UIntPtr)iRow, (UIntPtr)iCol, maxOrder,
+                                     nPolyOrder, tracetest, nNoRelations, alpha, ref retStat, ref retCV);
+
+      // Free the memory allocated
+      for (int i = 0; i < iRow; i++)
+      {
+        // Free individual rows
+        Marshal.FreeCoTaskMem(p2dArray[i]);
+      }
+      // Free array holding row addresses
+      Marshal.FreeCoTaskMem(buffer);
+
+      return retVal;
+    }
+
+
+
+
     /// <summary> Returns the Johansen (cointegration) test statistics for two or more time series. </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
     // TODO: We need to check this function declaration
