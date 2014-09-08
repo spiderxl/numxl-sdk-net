@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Runtime.InteropServices;
 
 using NumXLAPI;
 
@@ -221,25 +222,40 @@ namespace JohansenTest
         double retStat = double.NaN;
         double retCV = double.NaN;
 
-        UIntPtr nCount = (UIntPtr)173;
+        UIntPtr nCount = (UIntPtr)144;
         UIntPtr nVars = (UIntPtr)8;
 
         UIntPtr wMaxOrder = (UIntPtr)9;
         short nPolyOrder=0;
-        ushort nNoRelations=0;
+        UInt16 nNoRelations = 0;
         bool traceTest=false;
 
-        double[] data = new double[173 * 8];
 
-        int nIndex = 0;
-        for(int i=0; i< 173; i++)
-          for(int j=0; j< 8; j++)
+        // Passing double pointers
+        int iRow = 144;
+        int iCol = 8;
+        IntPtr[] p2dArray = new IntPtr[iRow];
+        for (int i = 0; i < iRow; i++)
+        {
+          double[] pdArray = new double[iCol];
+
+          // Fill row (array)
+          for (int j = 0; j < iCol; j++)
           {
-            data[nIndex] = US_MINING_EMPLOYMENT[i, j];
-            nIndex++;
+            pdArray[j] = US_MINING_EMPLOYMENT[i,j];
           }
 
-        nRet = (NDK_RETCODE)SFSDK.NDK_JOHANSENTEST(US_MINING_EMPLOYMENT, 
+          p2dArray[i] = Marshal.AllocCoTaskMem(Marshal.SizeOf(pdArray[0])* iCol);
+
+          
+          Marshal.Copy(pdArray, 0, p2dArray[i], iCol);
+        }
+
+        IntPtr vars=(IntPtr)0;
+        IntPtr buffer = Marshal.AllocCoTaskMem(Marshal.SizeOf(vars) * iRow);
+        Marshal.Copy(p2dArray, 0, buffer, iRow);
+
+        nRet = (NDK_RETCODE)SFSDK.NDK_JOHANSENTEST(ref buffer, 
                                        nCount, nVars, wMaxOrder, 
                                        nPolyOrder, traceTest, nNoRelations, alpha, ref retStat, ref retCV);
 

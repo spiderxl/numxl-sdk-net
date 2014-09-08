@@ -414,7 +414,7 @@ namespace NumXLAPI
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
     // TODO: We need to check this function declaration
     [DllImport(DLLName, EntryPoint = "#311", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
-    public static extern int NDK_JOHANSENTEST([MarshalAs(UnmanagedType.LPArray)] double[] pData, 
+    public static extern int NDK_JOHANSENTEST(ref IntPtr pData, 
                                               UIntPtr nSize, 
                                               UIntPtr nVars, 
                                               UIntPtr maxOrder, 
