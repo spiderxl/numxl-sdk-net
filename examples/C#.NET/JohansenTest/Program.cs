@@ -255,7 +255,7 @@ namespace JohansenTest
         IntPtr buffer = Marshal.AllocCoTaskMem(Marshal.SizeOf(vars) * iRow);
         Marshal.Copy(p2dArray, 0, buffer, iRow);
 
-        nRet = (NDK_RETCODE)SFSDK.NDK_JOHANSENTEST(ref buffer, 
+        nRet = (NDK_RETCODE)SFSDK.NDK_JOHANSENTEST(buffer, 
                                        nCount, nVars, wMaxOrder, 
                                        nPolyOrder, traceTest, nNoRelations, alpha, ref retStat, ref retCV);
 
