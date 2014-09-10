@@ -798,7 +798,7 @@ namespace NumXLAPI
     /// <summary> Calculates the OLS regression coefficients values </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
     [DllImport(DLLName, EntryPoint = "#730", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
-    public static extern int NDK_MLR_PARAM([MarshalAs(UnmanagedType.LPArray)] double[] pXData, UIntPtr nXSize,UIntPtr nXVars,
+    public static extern int NDK_MLR_PARAM(IntPtr pXData, UIntPtr nXSize,UIntPtr nXVars,
                                            [MarshalAs(UnmanagedType.LPArray)] byte[] mask, UIntPtr nMaskLen,
                                            [MarshalAs(UnmanagedType.LPArray)] double[] pYData, UIntPtr nYSize,
                                            double intercept,
@@ -806,6 +806,76 @@ namespace NumXLAPI
                                            short nRetType,
                                            short ParamIndex,
                                            ref double retVal);
+    /// <summary>
+    /// Calculates the OLS regression coefficients values
+    /// </summary>
+    /// <param name="pXData">is the independent (explanatory) variables data matrix, such that each column represents one variable.</param>
+    /// <param name="mask">is the boolean array to choose the explanatory variables in the model. If missing, all variables in X are included.</param>
+    /// <param name="pYData">is the response or the dependent variable data array (one dimensional array of cells).</param>
+    /// <param name="intercept">is the constant or intercept value to fix (e.g. zero). If missing (i.e. NaN), an intercept will not be fixed and is computed normally.</param>
+    /// <param name="alpha">is the statistical significance of the test (i.e. alpha). If missing or omitted, an alpha value of 5% is assumed.</param>
+    /// <param name="nRetType">is a switch to select the return output (1=value (default), 2=std. error, 3=t-stat, 4=P-value, 5=upper limit (CI), 6=lower limit (CI)):</param>
+    /// <param name="ParamIndex">is a switch to designate the target parameter (0=intercept (default), 1=first variable, 2=2nd variable, etc.).</param>
+    /// <param name="retVal">is the computed statistics of the regression coefficient.</param>
+    /// <returns></returns>
+    public static NDK_RETCODE MLR_PARAM(double[,] pXData,
+                                        byte[] mask,
+                                        double[] pYData, 
+                                        double intercept,
+                                        double alpha,
+                                        short nRetType,
+                                        short ParamIndex,
+                                        ref double retVal)
+    {
+      NDK_RETCODE retCode = NDK_RETCODE.NDK_FAILED;
+
+      retVal = Double.NaN;
+
+      int iRow = pXData.GetLength(0);   // number of rows
+      int iCol = pXData.GetLength(1);   // number of columns
+
+      int nMaskLen = mask.GetLength(0);
+      int nYSize = pYData.GetLength(0);
+
+
+      IntPtr[] p2dArray = new IntPtr[iRow];
+      for (int i = 0; i < iRow; i++)
+      {
+        double[] pdArray = new double[iCol];
+
+        // Fill row (array)
+        for (int j = 0; j < iCol; j++)
+        {
+          pdArray[j] = pXData[i, j];
+        }
+
+        p2dArray[i] = Marshal.AllocCoTaskMem(Marshal.SizeOf(pdArray[0]) * iCol);
+
+
+        Marshal.Copy(pdArray, 0, p2dArray[i], iCol);
+      }
+
+      IntPtr vars = (IntPtr)0;
+      IntPtr buffer = Marshal.AllocCoTaskMem(Marshal.SizeOf(vars) * iRow);
+      Marshal.Copy(p2dArray, 0, buffer, iRow);
+
+      retCode = (NDK_RETCODE)SFSDK.NDK_MLR_PARAM(buffer, (UIntPtr)iRow, (UIntPtr)iCol, mask, (UIntPtr)nMaskLen, pYData, (UIntPtr)nYSize, intercept, 
+                          alpha, nRetType, ParamIndex,  ref retVal);
+
+      // Free the memory allocated
+      for (int i = 0; i < iRow; i++)
+      {
+        // Free individual rows
+        Marshal.FreeCoTaskMem(p2dArray[i]);
+      }
+      // Free array holding row addresses
+      Marshal.FreeCoTaskMem(buffer);
+
+
+      return retCode;
+    }
+
+
 
     /// <summary> Calculates the forecast mean, error and confidence interval. </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
