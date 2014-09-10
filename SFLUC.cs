@@ -4,11 +4,6 @@
 //  All rights reserved.
 // </copyright>
 //  
-//  $Revision: 14816 $
-//  $Date: 2014-07-23 19:34:13 -0500 (Wed, 23 Jul 2014) $
-//  $Author: mohamad $
-//  $Id: SFLUC.cs 14816 2014-07-24 00:34:13Z mohamad $ 
-//  $HeadURL: https://secure.svnrepository.com/s_oliver/spiderxl/Branches/1.63SHAMROCK/products/NumXL-SDK.Net/NumXLAPI/SFLUC.cs $
 //
 #endregion
 

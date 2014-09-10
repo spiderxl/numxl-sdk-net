@@ -4,11 +4,6 @@
 //  All rights reserved.
 // </copyright>
 //  
-//  $Revision: 14819 $
-//  $Date: 2014-07-25 16:59:22 -0500 (Fri, 25 Jul 2014) $
-//  $Author: mohamad $
-//  $Id: SFMacros.cs 14819 2014-07-25 21:59:22Z mohamad $ 
-//  $HeadURL: https://secure.svnrepository.com/s_oliver/spiderxl/Branches/1.63SHAMROCK/products/NumXL-SDK.Net/NumXLAPI/SFMacros.cs $
 //
 #endregion
 
