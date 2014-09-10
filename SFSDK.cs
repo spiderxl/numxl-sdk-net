@@ -4,11 +4,6 @@
 //  All rights reserved.
 // </copyright>
 //  
-//  $Revision: 14819 $
-//  $Date: 2014-07-25 16:59:22 -0500 (Fri, 25 Jul 2014) $
-//  $Author: mohamad $
-//  $Id: SFSDK.cs 14819 2014-07-25 21:59:22Z mohamad $ 
-//  $HeadURL: https://secure.svnrepository.com/s_oliver/spiderxl/Branches/1.63SHAMROCK/products/NumXL-SDK.Net/NumXLAPI/SFSDK.cs $
 //
 #endregion
 
@@ -26,7 +21,7 @@ namespace NumXLAPI
   /// </summary>
   public enum TEST_RETURN
   {
-    TEST_PVALUE=1,        
+    TEST_PVALUE=1,
     TEST_SCORE=2,         
     TEST_CRITICALVALUE=3  
   }
@@ -414,7 +409,7 @@ namespace NumXLAPI
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
     // TODO: We need to check this function declaration
     [DllImport(DLLName, EntryPoint = "#311", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
-    public static extern int NDK_JOHANSENTEST(IntPtr pData, 
+    private static extern int NDK_JOHANSENTEST(IntPtr pData, 
                                               UIntPtr nSize, 
                                               UIntPtr nVars, 
                                               UIntPtr maxOrder, 
@@ -798,7 +793,7 @@ namespace NumXLAPI
     /// <summary> Calculates the OLS regression coefficients values </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
     [DllImport(DLLName, EntryPoint = "#730", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
-    public static extern int NDK_MLR_PARAM(IntPtr pXData, UIntPtr nXSize,UIntPtr nXVars,
+    private static extern int NDK_MLR_PARAM(IntPtr pXData, UIntPtr nXSize,UIntPtr nXVars,
                                            [MarshalAs(UnmanagedType.LPArray)] byte[] mask, UIntPtr nMaskLen,
                                            [MarshalAs(UnmanagedType.LPArray)] double[] pYData, UIntPtr nYSize,
                                            double intercept,
@@ -880,8 +875,8 @@ namespace NumXLAPI
     /// <summary> Calculates the forecast mean, error and confidence interval. </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
     [DllImport(DLLName, EntryPoint = "#731", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
-    public static extern int NDK_MLR_FORE([MarshalAs(UnmanagedType.LPArray)] double[] pXData, UIntPtr nXSize, UIntPtr nXVars,
-                                          [MarshalAs(UnmanagedType.LPArray)] byte[] mask, UIntPtr nMaskLen,
+    private static extern int NDK_MLR_FORE( IntPtr pXData, UIntPtr nXSize, UIntPtr nXVars,
+                                           [MarshalAs(UnmanagedType.LPArray)] byte[] mask, UIntPtr nMaskLen,
                                            [MarshalAs(UnmanagedType.LPArray)] double[] pYData, UIntPtr nYSize,
                                            double intercept,
                                            double target,
@@ -889,38 +884,302 @@ namespace NumXLAPI
                                            short nRetType,
                                            ref double retVal);
 
+    /// <summary>
+    /// Calculates the forecast mean, error and confidence interval.
+    /// </summary>
+    /// <param name="pXData">is the independent (explanatory) variables data matrix, such that each column represents one variable.</param>
+    /// <param name="mask">is the boolean array to choose the explanatory variables in the model. If missing, all variables in X are included.</param>
+    /// <param name="pYData">is the response or the dependent variable data array (one dimensional array of cells).</param>
+    /// <param name="intercept">is the constant or intercept value to fix (e.g. zero). If missing (i.e. NaN), an intercept will not be fixed and is computed normally.</param>
+    /// <param name="target">is the value of the explanatory variables (a one dimensional array).</param>
+    /// <param name="alpha">is the statistical significance of the test (i.e. alpha). If missing or omitted, an alpha value of 5% is assumed.</param>
+    /// <param name="nRetType">is a switch to select the return output (1=forecast (default), 2=error, 3=upper limit, 4=lower limit):</param>
+    /// <param name="retVal">is the computed forecast statistics.</param>
+    /// <returns></returns>
+    public static NDK_RETCODE MLR_FORE(double[,] pXData,
+                                    byte[] mask,
+                                    double[] pYData,
+                                    double intercept,
+                                    double target,
+                                    double alpha,
+                                    short nRetType,
+                                    ref double retVal)
+    {
+      NDK_RETCODE retCode = NDK_RETCODE.NDK_FAILED;
+
+      retVal = Double.NaN;
+
+      int iRow = pXData.GetLength(0);   // number of rows
+      int iCol = pXData.GetLength(1);   // number of columns
+
+      int nMaskLen = mask.GetLength(0);
+      int nYSize = pYData.GetLength(0);
+
+
+      IntPtr[] p2dArray = new IntPtr[iRow];
+      for (int i = 0; i < iRow; i++)
+      {
+        double[] pdArray = new double[iCol];
+
+        // Fill row (array)
+        for (int j = 0; j < iCol; j++)
+        {
+          pdArray[j] = pXData[i, j];
+        }
+
+        p2dArray[i] = Marshal.AllocCoTaskMem(Marshal.SizeOf(pdArray[0]) * iCol);
+
+
+        Marshal.Copy(pdArray, 0, p2dArray[i], iCol);
+      }
+
+      IntPtr vars = (IntPtr)0;
+      IntPtr buffer = Marshal.AllocCoTaskMem(Marshal.SizeOf(vars) * iRow);
+      Marshal.Copy(p2dArray, 0, buffer, iRow);
+
+      retCode = (NDK_RETCODE)SFSDK.NDK_MLR_FORE(buffer, (UIntPtr)iRow, (UIntPtr)iCol, mask, (UIntPtr)nMaskLen, pYData, (UIntPtr)nYSize, intercept,
+                          target, alpha, nRetType, ref retVal);
+
+      // Free the memory allocated
+      for (int i = 0; i < iRow; i++)
+      {
+        // Free individual rows
+        Marshal.FreeCoTaskMem(p2dArray[i]);
+      }
+      // Free array holding row addresses
+      Marshal.FreeCoTaskMem(buffer);
+
+      return retCode;
+    }
+
+
+
     /// <summary> Returns the fitted values of the conditional mean, residuals or leverage measures. </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
     [DllImport(DLLName, EntryPoint = "#732", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
-    public static extern int NDK_MLR_FITTED([MarshalAs(UnmanagedType.LPArray)] double[] pXData, UIntPtr nXSize, UIntPtr nXVars,
+    private static extern int NDK_MLR_FITTED(IntPtr pXData, UIntPtr nXSize, UIntPtr nXVars,
                                             [MarshalAs(UnmanagedType.LPArray)] byte[] mask, UIntPtr nMaskLen,
                                             [MarshalAs(UnmanagedType.LPArray)] double[] pYData, UIntPtr nYSize,
                                             double intercept,
                                             short nRetType);
 
+
+    /// <summary>
+    /// Returns the fitted values of the conditional mean, residuals or leverage measures.
+    /// </summary>
+    /// <param name="pXData">is the independent (explanatory) variables data matrix, such that each column represents one variable.</param>
+    /// <param name="mask">is the boolean array to choose the explanatory variables in the model. If missing, all variables in X are included.</param>
+    /// <param name="pYData">is the response or the dependent variable data array (one dimensional array of cells).</param>
+    /// <param name="intercept">is the constant or intercept value to fix (e.g. zero). If missing (i.e. NaN), an intercept will not be fixed and is computed normally.</param>
+    /// <param name="nRetType">is a switch to select the return output (1=fitted values (default), 2=residuals, 3=standardized residuals, 4=leverage, 5=Cook's distance).</param>
+    /// <returns>status code of the operation</returns>
+    public static NDK_RETCODE MLR_FITTED( double[,] pXData,
+                                          byte[] mask,
+                                          double[] pYData,
+                                          double intercept,
+                                          short nRetType)
+    {
+      NDK_RETCODE retCode = NDK_RETCODE.NDK_FAILED;
+
+      int iRow = pXData.GetLength(0);   // number of rows
+      int iCol = pXData.GetLength(1);   // number of columns
+
+      int nMaskLen = mask.GetLength(0);
+      int nYSize = pYData.GetLength(0);
+
+
+      IntPtr[] p2dArray = new IntPtr[iRow];
+      for (int i = 0; i < iRow; i++)
+      {
+        double[] pdArray = new double[iCol];
+
+        // Fill row (array)
+        for (int j = 0; j < iCol; j++)
+        {
+          pdArray[j] = pXData[i, j];
+        }
+
+        p2dArray[i] = Marshal.AllocCoTaskMem(Marshal.SizeOf(pdArray[0]) * iCol);
+
+
+        Marshal.Copy(pdArray, 0, p2dArray[i], iCol);
+      }
+
+      IntPtr vars = (IntPtr)0;
+      IntPtr buffer = Marshal.AllocCoTaskMem(Marshal.SizeOf(vars) * iRow);
+      Marshal.Copy(p2dArray, 0, buffer, iRow);
+
+      retCode = (NDK_RETCODE)SFSDK.NDK_MLR_FITTED(buffer, (UIntPtr)iRow, (UIntPtr)iCol, mask, (UIntPtr)nMaskLen, pYData, (UIntPtr)nYSize, intercept, nRetType);
+
+      // Free the memory allocated
+      for (int i = 0; i < iRow; i++)
+      {
+        // Free individual rows
+        Marshal.FreeCoTaskMem(p2dArray[i]);
+      }
+      // Free array holding row addresses
+      Marshal.FreeCoTaskMem(buffer);
+
+      return retCode;
+    }
+
+
+
     /// <summary> Returns the fitted values of the conditional mean, residuals or leverage measures. </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
     [DllImport(DLLName, EntryPoint = "#733", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
-    public static extern int NDK_MLR_ANOVA([MarshalAs(UnmanagedType.LPArray)] double[] pXData, UIntPtr nXSize, UIntPtr nXVars,
+    private static extern int NDK_MLR_ANOVA(IntPtr pXData, UIntPtr nXSize, UIntPtr nXVars,
                                            [MarshalAs(UnmanagedType.LPArray)] byte[] mask, UIntPtr nMaskLen,
                                            [MarshalAs(UnmanagedType.LPArray)] double[] pYData, UIntPtr nYSize,
                                            double intercept,
-                                           short nRetType);
+                                           short nRetType,
+                                           ref double retVal);
+
+
+
+    /// <summary>
+    /// Calculates the regression model analysis of the variance (ANOVA) values.
+    /// </summary>
+    /// <param name="pXData">is the independent (explanatory) variables data matrix, such that each column represents one variable.</param>
+    /// <param name="mask">is the boolean array to choose the explanatory variables in the model. If missing, all variables in X are included.</param>
+    /// <param name="pYData">is the response or the dependent variable data array (one dimensional array of cells).</param>
+    /// <param name="intercept">is the constant or intercept value to fix (e.g. zero). If missing (i.e. NaN), an intercept will not be fixed and is computed normally.</param>
+    /// <param name="nRetType">is a switch to select the output (1=SSR (default), 2=SSE, 3=SST, 4=MSR, 5=MSE, 6=F-stat, 7=P-value):</param>
+    /// <param name="retVal">is the calculated statistics ANOVA output.</param>
+    /// <returns>status code of the operation</returns>
+    public static NDK_RETCODE MLR_ANOVA(double[,] pXData,
+                                      byte[] mask,
+                                      double[] pYData,
+                                      double intercept,
+                                      short nRetType,
+                                      ref double retVal)
+    {
+      NDK_RETCODE retCode = NDK_RETCODE.NDK_FAILED;
+
+      int iRow = pXData.GetLength(0);   // number of rows
+      int iCol = pXData.GetLength(1);   // number of columns
+
+      int nMaskLen = mask.GetLength(0);
+      int nYSize = pYData.GetLength(0);
+
+      retVal = Double.NaN;
+
+      IntPtr[] p2dArray = new IntPtr[iRow];
+      for (int i = 0; i < iRow; i++)
+      {
+        double[] pdArray = new double[iCol];
+
+        // Fill row (array)
+        for (int j = 0; j < iCol; j++)
+        {
+          pdArray[j] = pXData[i, j];
+        }
+
+        p2dArray[i] = Marshal.AllocCoTaskMem(Marshal.SizeOf(pdArray[0]) * iCol);
+
+
+        Marshal.Copy(pdArray, 0, p2dArray[i], iCol);
+      }
+
+      IntPtr vars = (IntPtr)0;
+      IntPtr buffer = Marshal.AllocCoTaskMem(Marshal.SizeOf(vars) * iRow);
+      Marshal.Copy(p2dArray, 0, buffer, iRow);
+
+      retCode = (NDK_RETCODE)SFSDK.NDK_MLR_ANOVA(buffer, (UIntPtr)iRow, (UIntPtr)iCol, mask, (UIntPtr)nMaskLen, pYData, (UIntPtr)nYSize, intercept, nRetType, ref retVal);
+
+      // Free the memory allocated
+      for (int i = 0; i < iRow; i++)
+      {
+        // Free individual rows
+        Marshal.FreeCoTaskMem(p2dArray[i]);
+      }
+      // Free array holding row addresses
+      Marshal.FreeCoTaskMem(buffer);
+
+      return retCode;
+    }
+
+
+
 
     /// <summary> Calculates a measure for the goodness of fit (e.g. R^2). </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
     [DllImport(DLLName, EntryPoint = "#734", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
-    public static extern int NDK_SLR_GOF( [MarshalAs(UnmanagedType.LPArray)] double[] pXData, UIntPtr nXSize, UIntPtr nXVars,
+    private static extern int NDK_MLR_GOF( IntPtr pXData, UIntPtr nXSize, UIntPtr nXVars,
                                           [MarshalAs(UnmanagedType.LPArray)] byte[] mask, UIntPtr nMaskLen,
                                           [MarshalAs(UnmanagedType.LPArray)] double[] pYData, UIntPtr nYSize,
                                           double intercept,
                                           short nRetType,
                                           ref double retVal);
 
+    /// <summary>
+    /// Calculates a measure for the goodness of fit (e.g. R^2).
+    /// </summary>
+    /// <param name="pXData">is the independent (explanatory) variables data matrix, such that each column represents one variable.</param>
+    /// <param name="mask">is the boolean array to choose the explanatory variables in the model. If missing, all variables in X are included.</param>
+    /// <param name="pYData">is the response or the dependent variable data array (one dimensional array of cells).</param>
+    /// <param name="intercept">is the constant or intercept value to fix (e.g. zero). If missing (i.e. NaN), an intercept will not be fixed and is computed normally.</param>
+    /// <param name="nRetType">is a switch to select a fitness measure (1=R-square (default), 2=adjusted R-square, 3=RMSE, 4=LLF, 5=AIC, 6=BIC/SIC).
+    /// <param name="retVal">is the calculated goodness-of-fit statistics.</param>
+    /// <returns>status code of the operation</returns>
+    public static NDK_RETCODE MLR_GOF(double[,] pXData,
+                                      byte[] mask,
+                                      double[] pYData,
+                                      double intercept,
+                                      short nRetType,
+                                      ref double retVal)
+    {
+      NDK_RETCODE retCode = NDK_RETCODE.NDK_FAILED;
+
+      int iRow = pXData.GetLength(0);   // number of rows
+      int iCol = pXData.GetLength(1);   // number of columns
+
+      int nMaskLen = mask.GetLength(0);
+      int nYSize = pYData.GetLength(0);
+
+      retVal = double.NaN;
+
+      IntPtr[] p2dArray = new IntPtr[iRow];
+      for (int i = 0; i < iRow; i++)
+      {
+        double[] pdArray = new double[iCol];
+
+        // Fill row (array)
+        for (int j = 0; j < iCol; j++)
+        {
+          pdArray[j] = pXData[i, j];
+        }
+
+        p2dArray[i] = Marshal.AllocCoTaskMem(Marshal.SizeOf(pdArray[0]) * iCol);
+
+
+        Marshal.Copy(pdArray, 0, p2dArray[i], iCol);
+      }
+
+      IntPtr vars = (IntPtr)0;
+      IntPtr buffer = Marshal.AllocCoTaskMem(Marshal.SizeOf(vars) * iRow);
+      Marshal.Copy(p2dArray, 0, buffer, iRow);
+
+      retCode = (NDK_RETCODE)SFSDK.NDK_MLR_GOF(buffer, (UIntPtr)iRow, (UIntPtr)iCol, mask, (UIntPtr)nMaskLen, pYData, (UIntPtr)nYSize, intercept, nRetType, ref retVal);
+
+      // Free the memory allocated
+      for (int i = 0; i < iRow; i++)
+      {
+        // Free individual rows
+        Marshal.FreeCoTaskMem(p2dArray[i]);
+      }
+      // Free array holding row addresses
+      Marshal.FreeCoTaskMem(buffer);
+
+      return retCode;
+    }
+
+
+
     /// <summary> Calculates the p-value and related statistics of the partial f-test (used for testing the inclusion/exclusion variables). </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
     [DllImport(DLLName, EntryPoint = "#736", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
-    public static extern int NDK_MLR_PRFTest([MarshalAs(UnmanagedType.LPArray)] double[] pXData, UIntPtr nXSize, UIntPtr nXVars,                                         
+    private static extern int NDK_MLR_PRFTest(IntPtr pXData, UIntPtr nXSize, UIntPtr nXVars,                                         
                                          [MarshalAs(UnmanagedType.LPArray)] double[] pYData, UIntPtr nYSize,
                                          double intercept,
                                          [MarshalAs(UnmanagedType.LPArray)] byte[] mask1, UIntPtr nMaskLen1,
@@ -928,18 +1187,149 @@ namespace NumXLAPI
                                          double alpha,
                                          short nRetType,
                                          ref double retVal);
+    /// <summary>
+    /// Calculates the p-value and related statistics of the partial f-test (used for testing the inclusion/exclusion variables).
+    /// </summary>
+    /// <param name="pXData">is the independent (explanatory) variables data matrix, such that each column represents one variable.</param>
+    /// <param name="pYData">is the response or the dependent variable data array (one dimensional array of cells).</param>
+    /// <param name="intercept">is the constant or intercept value to fix (e.g. zero). If missing (i.e. NaN), an intercept will not be fixed and is computed normally.</param>
+    /// <param name="mask1">is the boolean array to choose the explanatory variables in model 1. If missing, all variables in X are included.</param>
+    /// <param name="mask2">is the boolean array to choose the explanatory variables in model 2. If missing, all variables in X are included.</param>
+    /// <param name="alpha">is the statistical significance of the test (i.e. alpha). If missing or omitted, an alpha value of 5% is assumed.</param>
+    /// <param name="nRetType">is a switch to select the return output (1 = P-Value (default), 2 = Test Stats, 3 = Critical Value.) </param>
+    /// <param name="retVal">is the calculated test statistics</param>
+    /// <returns>status code of the operation</returns>
+    public static NDK_RETCODE MLR_PRFTest(double[,] pXData,
+                                      double[] pYData,
+                                      double intercept,
+                                      byte[] mask1,
+                                      byte[] mask2,
+                                      double alpha,
+                                      short nRetType,
+                                      ref double retVal)
+    {
+      NDK_RETCODE retCode = NDK_RETCODE.NDK_FAILED;
+
+      int iRow = pXData.GetLength(0);   // number of rows
+      int iCol = pXData.GetLength(1);   // number of columns
+
+      int nMaskLen1 = mask1.GetLength(0);
+      int nMaskLen2 = mask2.GetLength(0);
+      int nYSize = pYData.GetLength(0);
+
+      retVal = double.NaN;
+
+      IntPtr[] p2dArray = new IntPtr[iRow];
+      for (int i = 0; i < iRow; i++)
+      {
+        double[] pdArray = new double[iCol];
+
+        // Fill row (array)
+        for (int j = 0; j < iCol; j++)
+        {
+          pdArray[j] = pXData[i, j];
+        }
+
+        p2dArray[i] = Marshal.AllocCoTaskMem(Marshal.SizeOf(pdArray[0]) * iCol);
+
+
+        Marshal.Copy(pdArray, 0, p2dArray[i], iCol);
+      }
+
+      IntPtr vars = (IntPtr)0;
+      IntPtr buffer = Marshal.AllocCoTaskMem(Marshal.SizeOf(vars) * iRow);
+      Marshal.Copy(p2dArray, 0, buffer, iRow);
+
+      retCode = (NDK_RETCODE)SFSDK.NDK_MLR_PRFTest(buffer, (UIntPtr)iRow, (UIntPtr)iCol, pYData, (UIntPtr)nYSize, intercept,
+                                                   mask1, (UIntPtr)nMaskLen1,
+                                                   mask2, (UIntPtr)nMaskLen2,
+                                                   alpha,
+                                                   nRetType, ref retVal);
+
+      // Free the memory allocated
+      for (int i = 0; i < iRow; i++)
+      {
+        // Free individual rows
+        Marshal.FreeCoTaskMem(p2dArray[i]);
+      }
+      // Free array holding row addresses
+      Marshal.FreeCoTaskMem(buffer);
+
+      return retCode;
+    }
+
 
 
     /// <summary> Returns a list of the selected variables after performing the stepwise regression. </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
     [DllImport(DLLName, EntryPoint = "#735", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
-    public static extern int NDK_MLR_STEPWISE([MarshalAs(UnmanagedType.LPArray)] double[] pXData, UIntPtr nXSize, UIntPtr nXVars,
+    private static extern int NDK_MLR_STEPWISE(IntPtr pXData, UIntPtr nXSize, UIntPtr nXVars,
                                          [MarshalAs(UnmanagedType.LPArray)] byte[] mask, UIntPtr nMaskLen,
                                          [MarshalAs(UnmanagedType.LPArray)] double[] pYData, UIntPtr nYSize,
                                          double intercept,
                                          double alpha, 
                                          short nMode);
 
+
+    /// <summary>
+    /// Returns a list of the selected variables after performing the stepwise regression.
+    /// </summary>
+    /// <param name="pXData">is the independent (explanatory) variables data matrix, such that each column represents one variable.</param>
+    /// <param name="mask">is the boolean array to choose the explanatory variables in the model. If missing, all variables in X are included.</param>
+    /// <param name="pYData">is the response or the dependent variable data array (one dimensional array of cells).</param>
+    /// <param name="intercept">is the constant or intercept value to fix (e.g. zero). If missing (i.e. NaN), an intercept will not be fixed and is computed normally.</param>
+    /// <param name="alpha">is the statistical significance of the test (i.e. alpha). If missing or omitted, an alpha value of 5% is assumed.</param>
+    /// <param name="nMode">is a switch to select the variable's inclusion/exclusion approach (1=forward selection (default), 2=backward elimination , 3=bi-directional elimination).</param>
+    /// <returns>status code of the operation</returns>
+    public static NDK_RETCODE MLR_STEPWISE( double[,] pXData,
+                                            byte[] mask,
+                                            double[] pYData,
+                                            double intercept,
+                                            double alpha,
+                                            short nMode)
+    {
+      NDK_RETCODE retCode = NDK_RETCODE.NDK_FAILED;
+
+      int iRow = pXData.GetLength(0);   // number of rows
+      int iCol = pXData.GetLength(1);   // number of columns
+
+      int nMaskLen = mask.GetLength(0);
+      int nYSize = pYData.GetLength(0);
+
+      IntPtr[] p2dArray = new IntPtr[iRow];
+      for (int i = 0; i < iRow; i++)
+      {
+        double[] pdArray = new double[iCol];
+
+        // Fill row (array)
+        for (int j = 0; j < iCol; j++)
+        {
+          pdArray[j] = pXData[i, j];
+        }
+
+        p2dArray[i] = Marshal.AllocCoTaskMem(Marshal.SizeOf(pdArray[0]) * iCol);
+
+
+        Marshal.Copy(pdArray, 0, p2dArray[i], iCol);
+      }
+
+      IntPtr vars = (IntPtr)0;
+      IntPtr buffer = Marshal.AllocCoTaskMem(Marshal.SizeOf(vars) * iRow);
+      Marshal.Copy(p2dArray, 0, buffer, iRow);
+
+      retCode = (NDK_RETCODE)SFSDK.NDK_MLR_STEPWISE(buffer, (UIntPtr)iRow, (UIntPtr)iCol, mask, (UIntPtr)nMaskLen, pYData, (UIntPtr)nYSize, intercept, alpha, nMode);
+
+      // Free the memory allocated
+      for (int i = 0; i < iRow; i++)
+      {
+        // Free individual rows
+        Marshal.FreeCoTaskMem(p2dArray[i]);
+      }
+      // Free array holding row addresses
+      Marshal.FreeCoTaskMem(buffer);
+
+      return retCode;
+    }
 
 
     // PCA
@@ -958,7 +1348,7 @@ namespace NumXLAPI
     /// <summary> Returns an array of cells for the fitted values of the i-th input variable. </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
     [DllImport(DLLName, EntryPoint = "#741", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
-    public static extern int NDK_PCA_COMP([MarshalAs(UnmanagedType.LPArray)] double[] pXData, UIntPtr nXSize, UIntPtr nXVars,
+    public static extern int NDK_PCA_VAR(IntPtr pXData, UIntPtr nXSize, UIntPtr nXVars,
                                          [MarshalAs(UnmanagedType.LPArray)] byte[] mask, UIntPtr nMaskLen,
                                          short standardize,
                                          short nVarIndex,
