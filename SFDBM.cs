@@ -28,7 +28,7 @@ namespace NumXLAPI
     /// Initialize and validate license for the SFDBM DLL.
     /// </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#100", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#100", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     private static extern int SFDB_Init(string szAppName, string szKey, string szActCode, string szLogDir);
 
     /// <summary>
@@ -52,7 +52,7 @@ namespace NumXLAPI
     /// Shutdown and release any resources allocated for SFDBM DLL.
     /// </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#105", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#105", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     private static extern int SFDB_Shutdown();
 
 
@@ -72,7 +72,7 @@ namespace NumXLAPI
     /// compute the date after a given a period (e.g. 1w, 1m, 3w, etc.).
     /// </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#200", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#200", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     public static extern int SFDB_EDATE(long argDate, string szPeriod, ref int retVal);
 
     /// <summary>
@@ -102,7 +102,7 @@ namespace NumXLAPI
     /// Returns the serial number of the n-th weekday in a month.
     /// </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#201", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#201", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     private static extern int SFDB_NWKDAY(UInt16 weekdy, short order, UInt16 mnth, UInt16 year, ref long retVal);
 
 
@@ -134,7 +134,7 @@ namespace NumXLAPI
     /// Returns the order of the weekday in the month for a given date. This is the inverse operator of SFDB_NWKDAY().
     /// </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#202", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#202", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     private static extern int SFDB_WKDYOrder(long argDate, ref short retVal);
 
 
@@ -159,7 +159,7 @@ namespace NumXLAPI
     /// Returns the day of the week corresponding to a date. The day is given as an integer, ranging from 1 (Sunday) to 7 (Saturday), by default.
     /// </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#203", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#203", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     private static extern int SFDB_WEEKDAY(long argDate, UInt16 argReturnType, ref UInt16  retVal);
 
 
@@ -184,7 +184,7 @@ namespace NumXLAPI
     /// Examines whether the given date falls on a weekend or a holiday (i.e. non-working day), and returns the nearest working business day using a Business Day Convention (BDC).
     /// </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#204", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#204", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     private static extern int SFDB_DTADJUST(long argDate, UInt16 argNextPrev,
                               string holidays,
                               long[]  zDates, 
@@ -234,7 +234,7 @@ namespace NumXLAPI
     /// Examines a given date for weekends and holidays (non-working days), and returns FALSE if it falls on a non-working day; otherwise it returns TRUE
     /// </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#205", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#205", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     public static extern int SFDB_ISWRKDY(long argDate,
                              string holidays,               // comma separated list of holiday names, calendars, countries or currency
                              long[] zDates,
@@ -247,7 +247,7 @@ namespace NumXLAPI
     /// Returns the number of whole working days between two dates (inclusive). Working days exclude weekends and any date identified as a holiday.
     /// </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#206", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#206", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     public static extern int SFDB_NETWRKDYS(long argStartDate,
                                             long argEndDate,
                                             string holidays,
@@ -260,7 +260,7 @@ namespace NumXLAPI
     /// Returns the serial date number that represents the date that falls after the start date by a given number of working days.
     /// </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#207", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#207", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     public static extern int SFDB_WORKDAY( long argDate,
                               short days,
                               string holidays,
@@ -274,7 +274,7 @@ namespace NumXLAPI
     /// Examine the given code as a valid holiday code.
     /// </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#226", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#226", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     public static extern int SFDB_ISVALIDHLDYCODE(string argCode);
     
     
@@ -282,7 +282,7 @@ namespace NumXLAPI
     /// Returns an array of the matching supported holiday codes.
     /// </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#220", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#220", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     public static extern int SFDB_HLDYS(string argHolidays, StringBuilder retVal, ref UIntPtr nLen);
 
 
@@ -290,14 +290,14 @@ namespace NumXLAPI
     /// Returns the holiday code that falls on the given date.
     /// </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#221", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#221", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     public static extern int SFDB_FindHLDY(long argDate, string argHolidays, StringBuilder retVal, ref UIntPtr nLen);
 
     /// <summary>
     /// Returns the full name of the holiday that corresponds to the given short code.
     /// </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#222", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#222", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     public static extern int SFDB_HLDYName(string code, StringBuilder retVal, ref UIntPtr nLen);
 
 
@@ -305,7 +305,7 @@ namespace NumXLAPI
     /// Returns the date serial number that represents the holiday in the given year.
     /// </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#223", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#223", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     public static extern int SFDB_HLDYDate(long argDate, long[] zDates, UIntPtr nSize, string szHolidays, UInt16 retType, ref long retVal);
 
 
@@ -313,14 +313,14 @@ namespace NumXLAPI
     /// Returns TRUE when the start date falls on a holiday.
     /// </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#224", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#224", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     public static extern int SFDB_ISHLDY(int argDate, long [] zDates, UIntPtr nSize, string szHolidays);
 
     /// <summary>
     /// Returns an array of serial date numbers that represent observed holidays between the two given dates.
     /// </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#225", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#225", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     public static extern int SFDB_HLDYDates(long argStartDate, long argEndDate, long[] zDates, UIntPtr nlen, string szHolidays, int[] retVal, ref UIntPtr nSize);
 
     // Weekend API
@@ -328,7 +328,7 @@ namespace NumXLAPI
     /// examines whether the given code corresponds to valid weekend convention.
     /// </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#245", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#245", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     public static extern int SFDB_ISVALIDWKND(string argCode);
 
 
@@ -336,35 +336,35 @@ namespace NumXLAPI
     /// Returns the seven-character string code for a weekend-number (1-7, 11-17).
     /// </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#240", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#240", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     public static extern int SFDB_WKNDCode(UInt16 argNumber, StringBuilder retVal, ref UIntPtr nLen);
 
     /// <summary>
     /// Returns the weekend-number (1-7 or 11-17) for a given country or a weekend code.
     /// </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#241", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#241", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     public static extern int SFDB_WKNDNo(string argCode, ref UInt16 nNo);
 
     /// <summary>
     /// Returns TRUE if the reference date falls on a (short/long) weekend.
     /// </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#242", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#242", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     public static extern int SFDB_ISWKND(long argDate, string holidays, long[] zDates, UIntPtr nSize, UInt16 nWkndNo, UInt16 argOptions);
 
     /// <summary>
     /// Returns the duration (in calendar days) of the (long) weekend that a given day falls on.
     /// </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#243", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#243", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     public static extern int SFDB_WKNDur(long argDate, string holidays, long [] zDates, UIntPtr nSize, UInt16 nWkndNo, ref UInt16 retVal);
 
     /// <summary>
     /// Returns the serial date number that corresponds to the first (last) day in the next (last) weekend.
     /// </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#244", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#244", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     public static extern int SFDB_WKNDate(long argDate, string holidays, long[] zDates, UIntPtr nSize, UInt16 wkndNo, UInt16 wkdOption, UInt16 direction, ref long retVal);
 
     // Calendar API
@@ -372,35 +372,35 @@ namespace NumXLAPI
     /// Examine the given code as a valid/supported calendar code.
     /// </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#264", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#264", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     public static extern int SFDB_ISVALIDCALCODE(string argCode);
 
     /// <summary>
     /// Returns the calendar name and description, given the calendar's short code (e.g., "US" will return "US Government Holidays").
     /// </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#260", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#260", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     public static extern int SFDB_CALNAME(string argCode, StringBuilder retVal, ref UIntPtr nLen);
 
     /// <summary>
     /// Returns an array of names and codes for the supported calendars.
     /// </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#261", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#261", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     public static extern int SFDB_CALENDARS(string argName, StringBuilder retVal, ref UIntPtr nLen, ref UInt16 nNumber);
 
     /// <summary>
     /// Returns an array of the holidays' names and codes as defined for the given calendar.
     /// </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#262", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#262", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     public static extern int SFDB_CALHLDYS(string argCalCode, StringBuilder retVal, ref UIntPtr nLen, ref UInt16 nNumber);
 
     /// <summary>
     /// Returns the weekend number associated with the given calendar.
     /// </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#262", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#262", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     public static extern int SFDB_CALWKND( string argCalCode, ref UInt16 nWKNDNo);
 
     // Country API
@@ -409,7 +409,7 @@ namespace NumXLAPI
     /// Return TRUE if the country code is a valid ISO country code (2 or 3 characters).
     /// </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#300", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#300", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     public static extern int SFDB_ISVALIDCNTRYCODE(string argCode);
 
 
@@ -417,14 +417,14 @@ namespace NumXLAPI
     /// Return the weekend code (i.e. 7 characters)  associated with the given country.
     /// </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#301", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#301", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     public static extern int SFDB_GETWKNDFROMCNTRY(string argCode, StringBuilder szBuffer, out UIntPtr nLen);
 
     /// <summary>
     /// Return the calendar code associated with the given country.
     /// </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#302", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#302", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     public static extern int SFDB_GETCALFROMCNTRY(string argCode, StringBuilder szBuffer, out UIntPtr nLen);
 
 
@@ -433,7 +433,7 @@ namespace NumXLAPI
     /// examine the validity of the currency iso code.
     /// </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#320", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#320", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     public static extern int SFDB_ISVALIDCCYCODE(string argCode);
 
 
@@ -441,14 +441,14 @@ namespace NumXLAPI
     /// Return the weekend code (i.e. 7 characters)  associated with the given currency.
     /// </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#322", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#322", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     public static extern int SFDB_GETWKNDFROMCCY(string argCode, StringBuilder szBuffer, out UIntPtr nLen);
 
     /// <summary>
     /// Return the calendar code associated with the given currency.
     /// </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#323", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#323", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     public static extern int SFDB_GETCALFROMCCY(string argCode, StringBuilder szBuffer, out UIntPtr nLen);
 
 
@@ -457,7 +457,7 @@ namespace NumXLAPI
     /// return a currency pair ordered in FX mkt convention.
     /// </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#340", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#340", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     public static extern int SFDB_GETVALIDCCYPAIR(string argCCY1, string argCCY2, StringBuilder szPair, out UIntPtr nLen);
 
 

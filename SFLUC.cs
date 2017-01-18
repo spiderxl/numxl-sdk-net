@@ -25,7 +25,7 @@ namespace NumXLAPI
 
     /// <summary> Initialize the NumXL SDK license system </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#100", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#100", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     private static extern int SFLUC_Init(string szAppName, string szLogDir, Boolean bEnableGracePeriod);
     /// <summary>
     /// Wrap the NDK_INIT API function with a CLS compliant function
@@ -43,7 +43,7 @@ namespace NumXLAPI
 
     /// <summary>Shutdown and release resources used by the NumXL SDK License system.</summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#105", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#105", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     private static extern int SFLUC_Shutdown();
     /// <summary>
     /// Shutdown and release resources used by the NumXL SDK License system
@@ -58,7 +58,7 @@ namespace NumXLAPI
 
     /// <summary>Verify the license key and activation code on the machine.</summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#200", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#200", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     private static extern int SFLUC_CHECK_LICENSE();
     /// <summary>
     /// Verify the license key and activation code on the machine.
@@ -73,7 +73,7 @@ namespace NumXLAPI
 
     /// <summary>Returns the effective license level.</summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#205", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#205", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     private static extern int SFLUC_LICENSE_LEVEL(out int level);
     /// <summary>
     /// Returns the effective license level.
@@ -89,7 +89,7 @@ namespace NumXLAPI
     }
 
     /// <summary>Returns the unique identifier for current host/machine.</summary>
-    [DllImport(DLLName, EntryPoint = "#300", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#300", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     private static extern int SFLUC_MACHINEID(StringBuilder szBuffer, out UIntPtr nLen);
 
     /// <summary>
@@ -113,7 +113,7 @@ namespace NumXLAPI
 
     /// <summary>Returns the license key string.</summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#305", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#305", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     private static extern int SFLUC_LICENSE_KEY(StringBuilder szBuffer, out UIntPtr nLen);
 
     /// <summary>
@@ -137,7 +137,7 @@ namespace NumXLAPI
 
     /// <summary>Returns the expiry date of current license key and activation code.</summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#310", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#310", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     private static extern int SFLUC_LICENSE_KEY_EXPIRY(ref UInt32 expiry);
 
     /// <summary>
@@ -162,7 +162,7 @@ namespace NumXLAPI
 
     /// <summary>Query and retrieve the expiration date of a given license key and activation code.</summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#320", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#320", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     private static extern int SFLUC_LICENSE_EXPIRY(string szKey, string szActivationCode, ref UInt32 expiry);
 
     /// <summary>
@@ -189,7 +189,7 @@ namespace NumXLAPI
 
     /// <summary> Query and retrieve the expiration date and license level of a license key and activation code.</summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#215", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#215", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     private static extern int SFLUC_CHECK_KEYCODE(string szPDKey, string szKey, string szActivationCode, ref UInt32 expiry, ref Int32 level);
 
     /// <summary>
@@ -218,7 +218,7 @@ namespace NumXLAPI
 
 
     /// <summary>Returns the activation code for the license key found on the machine.</summary>
-    [DllImport(DLLName, EntryPoint = "#315", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#315", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     private static extern int SFLUC_ACTIVATION_CODE(StringBuilder szBuffer, out UIntPtr nLen);
 
     /// <summary>
@@ -262,7 +262,7 @@ namespace NumXLAPI
 
     /// <summary>Query and retrieve the latest version available.</summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#225", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#225", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     private static extern int SFLUC_UPDATEVERSION(string szLicenseKey, string szFileVersion, StringBuilder updateVersion, out UIntPtr pVerSize, StringBuilder downloadURL, out UIntPtr pURLSize);
 
     /// <summary>
@@ -295,7 +295,7 @@ namespace NumXLAPI
 
     /// <summary>Query and retrieve the service date for a given license.</summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#220", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#220", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     private static extern int SFLUC_SERVICEDATE(string szLicenseKey, ref UInt32 serviceDate);
 
     /// <summary>

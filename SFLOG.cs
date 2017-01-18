@@ -51,7 +51,7 @@ namespace NumXLAPI
     /// <param name="szAppName">Application name (e.g. NumXL).</param>
     /// <param name="szLogDir">Temprorary directory to use for storing logging file and intermediate files.</param>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#100",CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#100",CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     private static extern int SFLOG_Init(string szAppName, string szLogDir);
 
     /// <summary>
@@ -70,7 +70,7 @@ namespace NumXLAPI
 
     /// <summary> Shutdown and release any resouces used by the logging system. </summary>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#105",CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#105",CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     private static extern int SFLOG_Shutdown();
 
     /// <summary>
@@ -93,7 +93,7 @@ namespace NumXLAPI
     /// <param name="nLineNo">the line number where the log function is called from.</param>
     /// <param name="szMsg">the actual logging message.</param>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#110", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#110", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     private static extern int SFLOG_LogMsg(int nLevel, string szFilename, string szFuncName,
       string szFuncSig, int nLineNo, string szMsg);
 
@@ -116,7 +116,7 @@ namespace NumXLAPI
     /// <summary> Returns current logging level. </summary>
     /// <param name="nLevel">current logging level <see cref="SFLOG_LEVEL"/>.</param>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#115", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#115", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     private static extern int SFLOG_GETLEVEL(out int nLevel);
 
     /// <summary> query the current logging level in the SDK. </summary>
@@ -133,7 +133,7 @@ namespace NumXLAPI
     /// <summary> Modify current logging level. </summary>
     /// <param name="nLevel">new logging level <see cref="SFLOG_LEVEL"/>.</param>
     /// <returns> an integer value for the status of the call. For a full list, see <see cref="NDK_RETCODE"/>.</returns>
-    [DllImport(DLLName, EntryPoint = "#120", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Ansi)]
+    [DllImport(DLLName, EntryPoint = "#120", CallingConvention = CallingConvention.StdCall, CharSet = CharSet.Unicode)]
     private static extern int SFLOG_SETLEVEL(int nLevel);
 
     /// <summary> set the new logging level in the SDK. </summary>

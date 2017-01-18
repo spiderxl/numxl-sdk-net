@@ -19,7 +19,7 @@ namespace TestApp
     {
       NDK_RETCODE nRet = NDK_RETCODE.NDK_FAILED;
 
-      Console.WriteLine("(c) 2009-2014 Spider Financial Corp.");
+      Console.WriteLine("(c) 2009-2017 Spider Financial Corp.");
       Console.WriteLine("All rights reserved.");
       Console.WriteLine();
       Console.WriteLine("Phone:    (312) 324-0366");
